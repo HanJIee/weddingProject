@@ -37,4 +37,5 @@ a:link {
 	background-color: white;
 	position: relative;
 	display:block;
+	z-index : 1000;
 }
