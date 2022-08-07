@@ -25,7 +25,7 @@
 <body>
 <div class="container">
 	<!-- 로고 -->
-	<div class="logo"><a href="#"><img src="/img/logo.png"></a></div>
+	<div id="logo"><a href="#"><img src="/img/logo.png" width="250"></a></div>
 	<ul class="popmenu">
 	  <li>
 	  	<a href="#">ABOUT</a>

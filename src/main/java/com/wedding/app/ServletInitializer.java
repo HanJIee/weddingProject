@@ -11,7 +11,8 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-
+import org.springframework.stereotype.Component;
+@Component
 public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
