@@ -5,12 +5,65 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<link rel="stylesheet" href="/css/top.css" type="text/css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="/js_css/style.css" type="yext/css"/>
-		<style>
-		</style>
+		
 		<script>	
+		$(function() {
+			//팝업메뉴
+			$(".popmenu>li").hover(function() {
+				//메인메뉴가 마우스 오버일때
+				$(this).children('ul').css('display','block');
+			}, function() {
+				//메인메뉴가 마우스 아웃일떄
+				$(this).children('ul').css('display','none');
+			});
+		});
 		</script>
 	</head>
 <body>
-테스트
+<div class="container">
+	<!-- 로고 -->
+	<div class="logo"><a href="#"><img src="/img/logo.png"></a></div>
+	<ul class="popmenu">
+	  <li>
+	  	<a href="#">ABOUT</a>
+	    <ul>
+	      <li><a href="#">브랜드스토리</a></li>
+	      <li><a href="#">찾아오시는 길</a></li>
+	    </ul>
+	  </li>
+	  
+	   <li>
+	  	<a href="#">SPACE</a>
+	    <ul>
+	      <li><a href="#">홀</a></li>
+	      <li><a href="#">부대시설/서비스</a></li>
+	    </ul>
+	  </li>
+	  
+	   <li>
+	  	<a href="#">GUIDE</a>
+	    <ul>
+	      <li><a href="#">식순리스트</a></li>
+	      <li><a href="#">체크리스트</a></li>
+	    </ul>
+	  </li>
+	  
+	   <li>
+	  	<a href="#">NEWS</a>
+	    <ul>
+	      <li><a href="#">이벤트</a></li>
+	      <li><a href="#">공지사항</a></li>
+	      <li><a href="#">갤러리</a></li>
+	    </ul>
+	  </li>
+	  
+	  <li>
+	  	<a href="#">RESERVATION</a>
+	    <ul>
+	      <li><a href="#">예약상담</a></li>
+	      <li><a href="#">예약확인</a></li>
+	    </ul>
+	  </li>
