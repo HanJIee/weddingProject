@@ -39,8 +39,7 @@ $(function() {
 </head>
 <body>
 	<div>
-		<ul id="imgSlider"> 
-		
+		<ul id="imgSlider">
 			<li>
 			<div><h1>웨딩. 가치를 품다<br/>
 			<span>Martrimonium</span></h1></div>
@@ -67,6 +66,5 @@ $(function() {
 			<img src="/img/index/07.jpg">
 			</li>
 		</ul>
-		qwe
 	</div>
 
