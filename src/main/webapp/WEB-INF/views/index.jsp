@@ -67,6 +67,6 @@ $(function() {
 			<img src="/img/index/07.jpg">
 			</li>
 		</ul>
-		
+		qwe
 	</div>
 
