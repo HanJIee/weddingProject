@@ -25,17 +25,20 @@ a:link {
 /*메인메뉴*/
 	.popmenu{
 		height:50px;
-		margin-left: 450px;
-		margin-right: 450px;
+		margin-left: 400px;
+		margin-right: 400px;
+		font-family: Bell MT;
+		
 	}
 	.popmenu>li{
 		float:left; width:20%; height:50%; line-height:50px; text-align:center; 
+		
 	}
 	
 /*서브메뉴*/
 .popmenu>li>ul{
 	background-color: white;
 	position: relative;
-	display:block;
+	display:none;
 	z-index : 1000; 
 }
