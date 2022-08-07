@@ -5,7 +5,7 @@ plugins {
 	id 'war'
 }
 
-group = 'com.wedding'
+group = 'com.campus'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -27,9 +27,10 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
+	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
+	
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.58'
 	// https://mvnrepository.com/artifact/javax.servlet/jstl
 	implementation 'javax.servlet:jstl:1.2'
@@ -39,8 +40,8 @@ dependencies {
 	
 	// https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
 	implementation 'commons-fileupload:commons-fileupload:1.4'
+	
 }
-
 
 tasks.named('test') {
 	useJUnitPlatform()
