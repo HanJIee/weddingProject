@@ -14,16 +14,6 @@
 <style>
 .bx-wrapper {border:0;background:#fbfbfb;box-shadow:none;}
 </style>
-
-<<<<<<< HEAD
-아자차카타파as
-sdddd
-gfdfdg
-제발슈발ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ
-갔냐?
-3131133133131313131
-djgfkhglfgnilgh
-=======
 <script>
 $(function() {
 	$("#imgSlider").bxSlider({
@@ -84,6 +74,3 @@ $(function() {
 </body>
 
 </html>
-zzzzz
-zzzzz
->>>>>>> branch 'master' of https://github.com/HanJIee/weddingProject.git
