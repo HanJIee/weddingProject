@@ -1,36 +1,41 @@
 @charset "UTF-8";
 
-body, ul ,lu {
+body, ul ,li {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 }
 
+a:link {
+	text-decoration: none;
+	
+}
 #logo {
 	text-align: center;
 }
 
+.popmenu, a:link, a:visited{ text-decoration:none; color:#333;}
+.popmenu a:hover{text-decoration:none; color:#333; font-weight:bold;}
+	
+	
 .container{
 		width: 100%; margin:0 auto;
 	}
 
 /*메인메뉴*/
-.popmenu{
-		height:100px;
-		border-top:2px solid #333;
-		border-bottom:1px solid #333;
-}
+	.popmenu{
+		height:50px;
+		margin-left: 450px;
+		margin-right: 450px;
+	}
+	.popmenu>li{
+		float:left; width:20%; height:50%; line-height:50px; text-align:center; 
+	}
 	
-.popmenu>li{
-	float:left; width:20%; height:50%; line-height:50px; text-align:center; 
-}
-
 /*서브메뉴*/
 .popmenu>li>ul{
-		background-color: white;
-		position: relative;
-		display:none;
+	background-color: white;
+	position: relative;
+	display:block;
+	z-index : 1000; 
 }
-	
-.section>img{width:100%;}
-	

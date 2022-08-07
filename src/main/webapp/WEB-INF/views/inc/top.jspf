@@ -7,7 +7,7 @@
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/css/top.css" type="text/css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="/js_css/style.css" type="yext/css"/>
+		
 		
 		<script>	
 		$(function() {
@@ -20,6 +20,7 @@
 				$(this).children('ul').css('display','none');
 			});
 		});
+		
 		</script>
 	</head>
 <body>
@@ -67,3 +68,8 @@
 	      <li><a href="#">예약확인</a></li>
 	    </ul>
 	  </li>
+	</ul>
+	</div>
+	</body>
+	</html>
+	
