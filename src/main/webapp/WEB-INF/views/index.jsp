@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<title>Martrimonium</title>
-
 <link rel="stylesheet" href="/css/index.css" type="text/css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/js_css/jquery.easing.1.3.js"></script>
-<script src="/js_css/jquery.bxslider.js"></script>
-<link rel="stylesheet" href="/js_css/jquery.bxslider.css" type="text/css">
+
+
 
 <style>
 .bx-wrapper {border:0;background:#fbfbfb;box-shadow:none;}
@@ -36,8 +31,7 @@ $(function() {
 	});
 });
 </script>
-</head>
-<body>
+
 	<div>
 		<ul id="imgSlider"> 
 		
