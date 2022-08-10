@@ -11,7 +11,6 @@
 <style>
 .bx-wrapper {border:0;background:#fbfbfb;box-shadow:none;}
 </style>
-
 <script>
 $(function() {
 	$("#imgSlider").bxSlider({
