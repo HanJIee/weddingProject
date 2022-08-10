@@ -10,6 +10,14 @@ a:link {
 	text-decoration: none;
 	
 }
+
+#memberinfo{
+ 	text-align: right;
+ 	margin-top: 20px;
+ 	margin-right: 10px;
+ 	
+ }
+ 
 #logo {
 	text-align: center;
 }
@@ -19,7 +27,7 @@ a:link {
 	
 	
 .container{
-		width: 100%; margin:0 auto;
+		width: 1700px; margin:0 auto;
 	}
 
 /*메인메뉴*/
@@ -32,7 +40,6 @@ a:link {
 	}
 	.popmenu>li{
 		float:left; width:20%; height:50%; line-height:50px; text-align:center; 
-		
 	}
 	
 /*서브메뉴*/
@@ -41,4 +48,18 @@ a:link {
 	position: relative;
 	display:none;
 	z-index : 1000; 
+}
+
+@media all and (min-width:601px) and (max-width:1350px){
+		.container{
+		width: 100%; margin:0 auto;}
+		
+		.popmenu{
+		height:50px;
+		margin-left: 200px;
+		margin-right: 200px;
+		font-family: Bell MT;}
+		
+		.popmenu>li>ul{
+		font-size:13px; }
 }
