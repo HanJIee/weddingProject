@@ -4,9 +4,12 @@
 
 
 <style>
-.bx-wrapper {border:0;background:#fbfbfb;box-shadow:none;}
-</style>
+.bx-wrapper {border:1;background:#fbfbfb;box-shadow:none;}
 
+#imgSlider img{
+	width:100%;
+}
+</style>
 <script>
 $(function() {
 	$("#imgSlider").bxSlider({
@@ -19,7 +22,6 @@ $(function() {
 		, infiniteLoop : true //반복여부
 		, hideControlOnEnd : false //좌우 컨트롤보여주기 true 처음과 마지막표시안함
 		, pager : true
-		
 		, useCSS : true //easing 사용여부 true-사용안함
 		,easing : 'easeOutElastic'
 		//,onSliderLode : function(){ //슬라이드가 로딩이 완료되면 호출되는 콜백함수
@@ -37,30 +39,29 @@ $(function() {
 		
 			<li>
 			<div><h1>웨딩. 가치를 품다<br/>
-			<span>Martrimonium</span></h1></div>
-			<img src="/img/index/4.jpg">
+				<span>Martrimonium</span></h1></div>
+				<img src="/img/index/4.jpg">
 			</li>
 			<li>
 			<div><h1>웨딩. 가치를 품다<br/>
-			<span>Martrimonium</span></h1></div>
-			<img src="/img/index/5.jpg">
+				<span>Martrimonium</span></h1></div>
+				<img src="/img/index/5.jpg">
 			</li>
 			<li>
 			<div><h1>웨딩. 가치를 품다<br/>
-			<span>Martrimonium</span></h1></div>
-			<img src="/img/index/6.jpg">
+				<span>Martrimonium</span></h1></div>
+				<img src="/img/index/6.jpg">
 			</li>
 			<li>
 			<div><h1>웨딩. 가치를 품다<br/>
-			<span>Martrimonium</span></h1></div>
-			<img src="/img/index/7.jpg">
+				<span>Martrimonium</span></h1></div>
+				<img src="/img/index/7.jpg">
 			</li>
 			<li>
 			<div><h1>웨딩. 가치를 품다<br/>
-			<span>Martrimonium</span></h1></div>
-			<img src="/img/index/07.jpg">
+				<span>Martrimonium</span></h1></div>
+				<img src="/img/index/07.jpg">
 			</li>
 		</ul>
-		
 	</div>
 

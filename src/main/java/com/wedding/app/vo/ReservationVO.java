@@ -1,6 +1,8 @@
 package com.wedding.app.vo;
 
-public class ResrevationVO {
+import java.util.List;
+
+public class ReservationVO {
 	private int no;
 	private String hallname;
 	private int scale;
@@ -13,15 +15,15 @@ public class ResrevationVO {
 	private String userid;
 	private String stabdby;
 	
+	private List<Integer> noList;
 
 	@Override
 	public String toString() {
-		return "ResrevationVO [no=" + no + ", hallname=" + hallname + ", scale=" + scale + ", dday=" + dday
+		return "ReservationVO [no=" + no + ", hallname=" + hallname + ", scale=" + scale + ", dday=" + dday
 				+ ", makeup=" + makeup + ", dress=" + dress + ", cday=" + cday + ", subject=" + subject + ", content="
-				+ content + ", userid=" + userid + ", stabdby=" + stabdby + "]";
+				+ content + ", userid=" + userid + ", stabdby=" + stabdby + ", noList=" + noList + "]";
 	}
-	
-	
+
 	public int getNo() {
 		return no;
 	}
@@ -87,6 +89,14 @@ public class ResrevationVO {
 	}
 	public void setStabdby(String stabdby) {
 		this.stabdby = stabdby;
+	}
+	public List<Integer> getNoList() {
+		return noList;
+	}
+
+
+	public void setNoList(List<Integer> noList) {
+		this.noList = noList;
 	}
 	
 	

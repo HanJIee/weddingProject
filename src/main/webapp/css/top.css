@@ -27,8 +27,8 @@ a:link {
 	
 	
 .container{
-		width: 1700px; margin:0 auto;
-	}
+		width: 1300px; margin:0 auto;
+}
 
 /*메인메뉴*/
 	.popmenu{
@@ -62,4 +62,9 @@ a:link {
 		
 		.popmenu>li>ul{
 		font-size:13px; }
+		
+		
+}
+@media print{
+	.container{display:none;}
 }
