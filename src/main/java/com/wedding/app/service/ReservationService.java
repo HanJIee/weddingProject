@@ -1,5 +1,9 @@
 package com.wedding.app.service;
 
-public interface ReservationService {
+import java.util.List;
 
+import com.wedding.app.vo.ReservationVO;
+
+public interface ReservationService {
+	public List<ReservationVO> reservationList(String hallname);
 }

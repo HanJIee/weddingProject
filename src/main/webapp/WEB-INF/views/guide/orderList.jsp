@@ -51,29 +51,34 @@
 		width:275px; height:50px; 
 		margin:40px 20px 80px;
 	}
+	
+	@media print {
+		/*header,footer 제거*/
+  		@page { margin: 0; }
+  		body { margin: 1.6cm;page-break-after: avoid; page-break-before: avoid}
+  		
+  		
+  		#middle{ /*img를 .page안에 꽉차게 */
+	    position:absolute;
+	    top:0;
+	    left:0;
+	    right:0;
+	    width:100%;
+	    height:100%
+	    }
+	    #topimg{display:none;}
+	}
+	
 </style>
 <script>
-	
-	/* function printPage(){
-	 	window.print();
-	}
-	function beforePrint(){
-		initBodyHtml = document.body.innerHTML;
-		document.body.innerHTML = document.getElementById('print').innerHTML;
-	}
-	function afterPrint(){
-		document.body.innerHTML = initBodyHtml;
-	}
-	
-	window.onebeforeprint = beforePrint();
-	window.oneafterprint = afterPrint(); */
-	/* $(function(){
+
+	 $(function(){
 		$('#print').on('click', function(){
-
 			 window.print();  // 클릭액션 : 버튼클릭시 인쇄창팝업
-
 		  });
-	}); */
+	});
+	
+	
 </script>
 <div class="box">
 	<div id="topimg">
@@ -93,7 +98,7 @@
 	<div id="middle">
 		<img src="/img/guide/order.png"/>
 	</div>
-	<input type="button" id="down" value="결혼식순서 다운로드"/>
+	<a href="/file/order.png" download><input type="button" id="down" value="결혼식순서 다운로드"/></a>
 	<input type="button" id="print" value="결혼식순서 인쇄하기" onclick="return printPage();"/>
 	
 </div>

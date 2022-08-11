@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="/css/bottom.css" type="text/css">
 
 <div class="bottom">
+	<div id="bottom_info">
 	<ul class="info">
 		<h2>사업자정보</h2><br/>
 		<li>상호 : Martrimonium</li>
@@ -25,7 +26,7 @@
 	<ul class="info">
 		<img src="/img/logo.png" width="300"/>
 	</ul>
-
+	</div>
 </div>
 
 </body>

@@ -6,7 +6,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <style>
-	ul, lu{
+	ul, li{
 	margin: 0;
 	padding: 0;
 	}
@@ -64,55 +64,45 @@
 <script>
 
 $(function(){
-	 /*
-    //config 값을 json형식으로 만든후 setDefaults로 설정할수도 있음.
-     
-    $.datepicker.regional['ko'] = {closeText: '닫기',dayNamesShort: ['일','월','화','수','목','금','토']};
-    $.datepicker.setDefaults($.datepicker.regional['ko']);
-    */
-     
-    $("#datepicker").datepicker({
-        changeMonth:true,
-        changeYear:true,
-        yearRange:"2022:2025",
-        showOn:"both",
-        buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
-        buttonImageOnly:true,
-        dateFormat: 'yy-mm-dd',
-        showOtherMonths: true,
-        selectOtherMonths: true,
-        showMonthAfterYear: true,
-        dayNamesMin: ['일','월', '화', '수', '목', '금', '토'],
-        monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-        monthNames: ['년 1월','년 2월','년 3월','년 4월','년 5월','년 6월','년 7월','년 8월','년 9월','년 10월','년 11월','년 12월'],
-        nextText: '다음 달',
-        prevText: '이전 달',
-        beforeShowDay: disableAllTheseDays 
-    });
-     
+    
+ 	$("#hallname").change(function(){
+ 		console.log(11111)
+ 		$.ajax({
+ 			url:"/reservation/calendar",
+ 			data:{hallname:$("#hallname").val()},
+ 			success:function(result){
+ 				var $result = $(result);
+ 				disabledDays = [];
+ 				$result.each(function(i, day){
+ 					disabledDays.push(day.dday);
+ 				});
+ 				console.log(disabledDays);
+ 				$("#datepicker").datepicker({
+ 			        changeMonth:true,
+ 			        changeYear:true,
+ 			        yearRange:"2022:2025",
+ 			        showOn:"both",
+ 			        buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
+ 			        buttonImageOnly:true,
+ 			        dateFormat: 'yy-mm-dd',
+ 			        showOtherMonths: true,
+ 			        selectOtherMonths: true,
+ 			        showMonthAfterYear: true,
+ 			        dayNamesMin: ['일','월', '화', '수', '목', '금', '토'],
+ 			        monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+ 			        monthNames: ['년 1월','년 2월','년 3월','년 4월','년 5월','년 6월','년 7월','년 8월','년 9월','년 10월','년 11월','년 12월'],
+ 			        nextText: '다음 달',
+ 			        prevText: '이전 달',
+ 			        beforeShowDay: disableAllTheseDays 
+ 			    });
+ 			}
+ 		});
+ 	});    
 });    
  
 // 특정날짜들 배열
-var disabledDays = [${checkdata}]; //json형태로 문자배열로 controller에 가져와서 여기로 쓰기
- 
-// 주말(토, 일요일) 선택 막기
-function noWeekendsOrHolidays(date) {
-    var noWeekend = jQuery.datepicker.noWeekends(date);
-    return noWeekend[0] ? [true] : noWeekend;
-}
- 
-// 일요일만 선택 막기
-function noSundays(date) {
-  return [date.getDay() != 0, ''];
-}
- 
-// 이전 날짜들은 선택막기
-function noBefore(date){
-    if (date < new Date())
-        return [false];
-    return [true];
-}
- 
+var disabledDays = ["2022-8-25"]; //json형태로 문자배열로 controller에 가져와서 여기로 쓰기
+
 // 특정일 선택막기
 function disableAllTheseDays(date) {
     var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
@@ -150,7 +140,7 @@ function disableAllTheseDays(date) {
 	<ul class="optioninfo">
 		<li>홀선택*</li>
 		<li>
-			<select name="hallname">
+			<select name="hallname" id="hallname">
 			<option>가든홀1</option>
 			<option>가든홀2</option>
 			</select>
@@ -188,5 +178,4 @@ function disableAllTheseDays(date) {
 	</ul>
 
 </div>
-<!-- 문의사항 -->
 

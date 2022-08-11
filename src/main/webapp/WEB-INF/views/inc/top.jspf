@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, inital-scale=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="/css/top.css" type="text/css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -57,7 +57,7 @@
 	   <li>
 	  	<a href="#">GUIDE</a>
 	    <ul>
-	      <li><a href="#">식순리스트</a></li>
+	      <li><a href="/guide/orderList">식순리스트</a></li>
 	      <li><a href="#">체크리스트</a></li>
 	    </ul>
 	  </li>
@@ -74,11 +74,11 @@
 	  <li>
 	  	<a href="#">RESERVATION</a>
 	    <ul>
-	      <li><a href="#">예약상담</a></li>
-	      <li><a href="#">예약확인</a></li>
+	      <li><a href="/reservation/consult">예약상담</a></li>
+	      <li><a href="/reservation/check">예약확인</a></li>
 	    </ul>
 	  </li>
 	</ul>
-	</div>
+</div>
 	
 	
