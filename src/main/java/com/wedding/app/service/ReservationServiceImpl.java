@@ -18,5 +18,10 @@ public class ReservationServiceImpl implements ReservationService {
 	public List<ReservationVO> reservationList(String hallname) {
 		return dao.reservationList(hallname);
 	}
+
+	@Override
+	public ReservationVO checkPrint(ReservationVO vo) {
+		return dao.checkPrint(vo);
+	}
 	
 }

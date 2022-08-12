@@ -55,7 +55,9 @@
 	.modify{text-align:center;}
 	
 </style>
+<script>
 
+</script>
 <div id="topImg">
 	<img src="/img/001.jpg">
 </div>
@@ -68,28 +70,32 @@
 
 <div id="headtitle">
 	<h1>WEDDING RESERVATION</h1>
-	<P>예약확인을 하실 수 있습니다.</P>
+	<P>예약변경/취소를 하실 수 있습니다.</P>
 </div>
 
 <div id="info">
-	<h2>예식확인</h2>
-	<form method="post" action="reservation/checkPrint">
+	<h2>변경/취소문의</h2>
+	
 	<ul class="optioninfo">
-		<c:forEach var="vo" items="${list}">
 		<li>홀선택</li>
 		<li><input type="text" name="hallname" id="hallname" value="${vo.hallname}" readonly/></li>
 		<li>예상인원</li>
 		<li><input type="text" name="scale" id="scale" value="${vo.scale}" readonly/></li>	
-		<li>예식일</li>
-		<li><input type="text" id="dday" value="${vo.dday}"></li>
+		<li>변경할 예식일</li>
+		<li><input type="text" id="datepicker" value="${vo.dday}"></li>
 		<li>신부메이크업</li>
 		<li><input type="text" name="makeup" value="${vo.makeup}"/></li>
 		<li>드레스대여</li>
 		<li><input type="text" name="dress" value="${vo.dress }"/></li>
-		</c:forEach>
+		<li>변경/취소</li>
+		<li>
+			<select name="optionselect" id="optionselect">
+			<option>예식일변경</option>
+			<option>예식취소</option>
+			</select>
+		</li>
 	</ul>
-	</form>
 </div>
 <div class="modify">
-	<input type="button" id="modify" value="예약변경/취소" onclick="location.href='modify'"/>
+	<input type="button" id="modifyOk" value="변경/취소하기"/>
 </div>

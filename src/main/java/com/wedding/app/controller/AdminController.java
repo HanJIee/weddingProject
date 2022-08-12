@@ -65,7 +65,6 @@ public class AdminController {
 		}
 		msg += "location.href='/staff/adReservation';</script>";
 		
-		
 		entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
 		return entity;
 	}
@@ -96,7 +95,6 @@ public class AdminController {
 	//예약변경
 		@PostMapping("multiChange")
 		public ResponseEntity<String> reservationMultiChange(ReservationVO vo) {
-			System.out.println(vo.getNoList().size());
 			ResponseEntity<String> entity = null;
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(new MediaType("text","html", Charset.forName("UTF-8")));

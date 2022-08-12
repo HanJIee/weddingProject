@@ -17,20 +17,13 @@ public class GuideController {
 		return mav;
 	}
 	
-	/*
-	 * //파일업로드 public ResponseEntity<String> ____( ,HttpServletRequest request) {
-	 * String path =
-	 * request.getSession().getServletContext().getRealPath("/upload");
-	 * 
-	 * HttpHeaders headers = new HttpHeaders(); headers.setContentType(new
-	 * MediaType("text", "html", Charset.forName("UTF-8")));
-	 * headers.add("Content-Type", "text/html; charset=UTF-8");
-	 * 
-	 * String msg =""; try { MultipartHttpServletRequest mr =
-	 * (MultipartHttpServletRequest)request; List<MultipartFile> files =
-	 * mr.getFiles("filename");
-	 * 
-	 * } }
-	 */
+	//체크리스트로 이동
+		@GetMapping("checkList")
+		public ModelAndView checkList() {
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("guide/checkList");
+			return mav;
+		}
+	
 	
 }
