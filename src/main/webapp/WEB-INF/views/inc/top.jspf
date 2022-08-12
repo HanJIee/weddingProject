@@ -50,7 +50,7 @@
 	  	<a href="#">SPACE</a>
 	    <ul>
 	      <li><a href="/space/hallList">홀</a></li>
-	      <li><a href="#">부대시설/서비스</a></li>
+	      <li><a href="/space/serviceList">부대시설/서비스</a></li>
 	    </ul>
 	  </li>
 	  
