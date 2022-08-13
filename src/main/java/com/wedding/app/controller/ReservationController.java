@@ -54,10 +54,12 @@ public class ReservationController {
 		}
 	//예약확인페이지 정보출력
 		@PostMapping("checkPrint")
-		public ModelAndView checkPrint(ReservationVO vo) {
+		public ModelAndView checkPrint(ReservationVO vo, HttpSession session) {
+			vo.setUserid((String)session.getAttribute("logId"));
+			
 			ModelAndView mav = new ModelAndView();
 			
-			mav.addObject("list", service.checkPrint(vo));
+			//mav.addObject("list", service.checkPrint(vo));
 			mav.addObject("vo", vo);
 			mav.setViewName("reservation/check");
 			return mav;

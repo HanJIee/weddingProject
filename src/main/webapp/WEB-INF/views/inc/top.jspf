@@ -48,8 +48,8 @@
 	  <li>
 	  	<a href="#">ABOUT</a>
 	    <ul>
-	      <li><a href="#">브랜드스토리</a></li>
-	      <li><a href="#">찾아오시는 길</a></li>
+	      <li><a href="/about/brand">브랜드스토리</a></li>
+	      <li><a href="/about/map">찾아오시는 길</a></li>
 	    </ul>
 	  </li>
 	  
@@ -57,7 +57,7 @@
 	  	<a href="#">SPACE</a>
 	    <ul>
 	      <li><a href="/space/hallList">홀</a></li>
-	      <li><a href="#">부대시설/서비스</a></li>
+	      <li><a href="/space/serviceList">부대시설/서비스</a></li>
 	    </ul>
 	  </li>
 	  

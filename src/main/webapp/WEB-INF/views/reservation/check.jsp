@@ -75,7 +75,7 @@
 	<h2>예식확인</h2>
 	<form method="post" action="reservation/checkPrint">
 	<ul class="optioninfo">
-		<c:forEach var="vo" items="${list}">
+		<%-- <c:forEach var="vo" items="${list}"> --%>
 		<li>홀선택</li>
 		<li><input type="text" name="hallname" id="hallname" value="${vo.hallname}" readonly/></li>
 		<li>예상인원</li>
@@ -86,7 +86,7 @@
 		<li><input type="text" name="makeup" value="${vo.makeup}"/></li>
 		<li>드레스대여</li>
 		<li><input type="text" name="dress" value="${vo.dress }"/></li>
-		</c:forEach>
+		<%-- </c:forEach> --%>
 	</ul>
 	</form>
 </div>

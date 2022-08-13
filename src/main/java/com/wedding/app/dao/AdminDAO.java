@@ -10,6 +10,7 @@ import com.wedding.app.vo.ReservationVO;
 @Mapper
 @Repository
 public interface AdminDAO {
+	
 	public List<ReservationVO> adList();
 	public int reservationMultiCancel(ReservationVO vo);
 	public int reservationMultiComplete(ReservationVO vo);

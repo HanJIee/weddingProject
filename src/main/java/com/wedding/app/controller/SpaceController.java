@@ -22,4 +22,11 @@ public class SpaceController {
     	mav.setViewName("space/hallList");
     	return mav;
     } 
+	
+	@GetMapping("/serviceList") 
+    public ModelAndView serviceList() { 
+    	ModelAndView mav = new ModelAndView();
+    	mav.setViewName("space/serviceList");
+    	return mav;
+    } 
 }

@@ -1,8 +1,6 @@
 package com.wedding.app.controller;
 
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -33,6 +31,7 @@ public class AdminController {
 		mav.setViewName("staff/admin");
 		return mav;
 	}
+	
 	//==============================================================================
 	
 	//===============================================================================
