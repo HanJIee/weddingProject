@@ -11,4 +11,5 @@ import com.wedding.app.vo.ReservationVO;
 @Repository
 public interface ReservationDAO {
 	public List<ReservationVO> reservationList(String hallname);
+	public ReservationVO checkPrint(ReservationVO vo);
 }
