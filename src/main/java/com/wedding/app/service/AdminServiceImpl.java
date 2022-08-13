@@ -13,7 +13,7 @@ import com.wedding.app.vo.ReservationVO;
 public class AdminServiceImpl implements AdminService {
 	@Inject
 	AdminDAO dao;
-
+	
 	@Override
 	public List<ReservationVO> adList() {
 		return dao.adList();

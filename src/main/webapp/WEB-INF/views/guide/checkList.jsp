@@ -39,10 +39,10 @@
 		
 		font-size:1.2em;
 	}
-	.menu>li:first-child{
+	.menu>li:last-child{
 		background-color:white;
 	}
-	.menu>li:last-child>a{
+	.menu>li:first-child>a{
 		color:white;
 	}
 	#middle>img{width:70%; margin:25px auto;}
@@ -60,7 +60,7 @@
 	@media print {
 		/*header,footer 제거*/
   		@page { margin: 0; }
-  		body { margin: 1.6cm;page-break-after: avoid; page-break-before: avoid}
+  		body { margin: 1.6cm; page-break-after: avoid; page-break-before: avoid}
   		
   		
   		#middle{ /*img를 .page안에 꽉차게 */
@@ -69,7 +69,7 @@
 	    left:0;
 	    right:0;
 	    width:100%;
-	    height:100%
+	    height:100%;
 	    }
 	    #topimg{display:none;}
 	}
@@ -96,14 +96,14 @@
 		</ul>
 	</div>
 	<div id="headtitle">
-		<h1>Wedding Program</h1>
-		<P>결혼식 진행순서에 대해 안내해 드립니다.</P>
+		<h1>Wedding CheckList</h1>
+		<P>결혼식 체크리스트에 대해 안내해 드립니다.</P>
 	</div>
 	<!-- 컨텐츠 -->
 	<div id="middle">
-		<img src="/img/guide/order.png"/>
+		<img src="/img/guide/checklist.png"/>
 	</div>
-	<a href="/file/order.png" download><input type="button" id="down" value="결혼식순서 다운로드"/></a>
-	<input type="button" id="print" value="결혼식순서 인쇄하기" onclick="return printPage();"/>
+	<a href="/file/checklist.png" download><input type="button" id="down" value="체크리스트 다운로드"/></a>
+	<input type="button" id="print" value="체크리스트 인쇄하기" onclick="return printPage();"/>
 	
 </div>

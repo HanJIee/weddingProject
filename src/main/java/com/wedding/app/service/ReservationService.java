@@ -6,4 +6,5 @@ import com.wedding.app.vo.ReservationVO;
 
 public interface ReservationService {
 	public List<ReservationVO> reservationList(String hallname);
+	public ReservationVO checkPrint(ReservationVO vo);
 }

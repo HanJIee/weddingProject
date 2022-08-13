@@ -3,17 +3,17 @@ package com.wedding.app.vo;
 public class UserVO {
 	private String userid;
 	private String userpwd;
-	private String username;
 	private String tel;
 	private String gender;
 	private String writedate;
 	
 	
 	
+	
 	@Override
 	public String toString() {
-		return "UserVO [userid=" + userid + ", userpwd=" + userpwd + ", username=" + username + ", tel=" + tel
-				+ ", gender=" + gender + ", writedate=" + writedate + "]";
+		return "UserVO [userid=" + userid + ", userpwd=" + userpwd + ", tel=" + tel + ", gender=" + gender
+				+ ", writedate=" + writedate + "]";
 	}
 	
 	
@@ -28,12 +28,6 @@ public class UserVO {
 	}
 	public void setUserpwd(String userpwd) {
 		this.userpwd = userpwd;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
 	}
 	public String getTel() {
 		return tel;
@@ -53,6 +47,10 @@ public class UserVO {
 	public void setWritedate(String writedate) {
 		this.writedate = writedate;
 	}
+	
+	
+	
+	
 	
 	
 	

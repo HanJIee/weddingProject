@@ -1,5 +1,6 @@
 package com.wedding.app.service;
 
-public interface BoardService {
+import com.wedding.app.vo.ReservationVO;
 
+public interface BoardService {
 }

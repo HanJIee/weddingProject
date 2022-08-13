@@ -1,5 +1,7 @@
 package com.wedding.app.service;
 
-public interface UserService {
+import com.wedding.app.vo.UserVO;
 
+public interface UserService {
+	public UserVO loginOk(UserVO vo);
 }

@@ -1,8 +1,6 @@
 package com.wedding.app.controller;
 
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -33,6 +31,7 @@ public class AdminController {
 		mav.setViewName("staff/admin");
 		return mav;
 	}
+	
 	//==============================================================================
 	
 	//===============================================================================
@@ -65,7 +64,6 @@ public class AdminController {
 		}
 		msg += "location.href='/staff/adReservation';</script>";
 		
-		
 		entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
 		return entity;
 	}
@@ -96,7 +94,6 @@ public class AdminController {
 	//예약변경
 		@PostMapping("multiChange")
 		public ResponseEntity<String> reservationMultiChange(ReservationVO vo) {
-			System.out.println(vo.getNoList().size());
 			ResponseEntity<String> entity = null;
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(new MediaType("text","html", Charset.forName("UTF-8")));

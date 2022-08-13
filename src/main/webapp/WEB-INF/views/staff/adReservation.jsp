@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="/js_css/jquery-ui.min.css" type="text/css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/js_css/jquery-ui.min.js"></script>
+
 <style>
      .container{display:none;}
      .bottom{display:none;}
@@ -59,7 +57,8 @@
 			autoOpen:false //실행시 자동열림설정(true:기본, false)
 			,buttons:{
 				submit : function(){
-					$("#listFrm").attr("action","/staff/multiChange");		
+					$("#listFrm").attr("action","/staff/multiChange");	
+					$("#dday").val($("#event-date").val());
 					$("#listFrm").submit();
 				},
 				reset : function(){
@@ -123,14 +122,11 @@
 		<input type="button" value="예약확정" class="multiDel"/>
 		
 		<input type="button" id="dialogOpen" value="예약변경"/>
-		<!-- 예약변경창 -->
-		<div id="dialog" title="예약변경">
-			<label for="event-date">날짜선택</label>
-			<input type="text" id="event-date"/>
-		</div>
+		
 		
 		<div>
 			<form method="post" id="listFrm">
+			<input type="hidden" name="dday" id="dday"/>
 				<table id="box">
 					<thead>
 						<tr>
@@ -165,5 +161,9 @@
 				</table>
 			</form>
 		</div>
-		
+		<!-- 예약변경창 -->
+		<div id="dialog" title="예약변경">
+			<label for="event-date">날짜선택</label>
+			<input type="text" id="event-date"/>
+		</div>
 </div>
