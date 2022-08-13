@@ -6,8 +6,11 @@
 	<select id="reservationList" resultType="ReservationVO">
 		select date_format(dday,'%Y-%c-%e') dday from reservation where hallname=#{param1} order by dday
 	</select>
-	<select id="checkPrint" resultType="ReservationVO">
-		select hallname, scale, date_format(dday,'%Y-%c-%e') dday, makeup, dress from reservation where userid=#{param1}
+	<select id="getInfo" resultType="ReservationVO">
+		select hallname, scale, date_format(dday,'%Y-%c-%e') dday, makeup, dress from reservation where userid=#{userid}
 	</select>
-	
+	<insert id="modifyOk">
+		insert into daychange(change, changeday)
+		values(#{change}, #{changeday});
+	</insert>
 </mapper>	

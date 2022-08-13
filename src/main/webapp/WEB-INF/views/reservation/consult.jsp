@@ -66,7 +66,6 @@
 $(function(){
     
  	$("#hallname").change(function(){
- 		console.log(11111)
  		$.ajax({
  			url:"/reservation/calendar",
  			data:{hallname:$("#hallname").val()},
@@ -76,6 +75,7 @@ $(function(){
  				$result.each(function(i, day){
  					disabledDays.push(day.dday);
  				});
+ 				
  				console.log(disabledDays);
  				$("#datepicker").datepicker({
  			        changeMonth:true,

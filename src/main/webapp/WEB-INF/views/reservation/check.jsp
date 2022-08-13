@@ -73,7 +73,7 @@
 
 <div id="info">
 	<h2>예식확인</h2>
-	<form method="post" action="reservation/checkPrint">
+	<form method="post" action="/reservation/checkPrint">
 	<ul class="optioninfo">
 		<%-- <c:forEach var="vo" items="${list}"> --%>
 		<li>홀선택</li>

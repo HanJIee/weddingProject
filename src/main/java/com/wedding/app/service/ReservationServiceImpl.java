@@ -20,8 +20,16 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
-	public ReservationVO checkPrint(ReservationVO vo) {
-		return dao.checkPrint(vo);
+	public ReservationVO getInfo(String userid) {
+		return dao.getInfo(userid);
 	}
+
+	@Override
+	public int modifyOk(ReservationVO vo) {
+		return dao.modifyOk(vo);
+	}
+
+	
+
 	
 }
