@@ -29,6 +29,9 @@
 		background-color: #FFA200;
 		font-weight: bold;
 	}
+	.menu>li:last-child{
+		background-color:white;
+	}
 	
 	#headtitle{
 		text-align: center;
@@ -61,8 +64,8 @@
 </div>
 <div>
 	<ul class="menu">
-		<li><a href="">예약상담</a></li>
-		<li><a href="">예약확인</a></li>
+		<li><a href="consult">예약상담</a></li>
+		<li><a href="check">예약확인</a></li>
 	</ul>
 </div>
 
@@ -73,7 +76,7 @@
 
 <div id="info">
 	<h2>예식확인</h2>
-	<form method="post" action="reservation/checkPrint">
+	<form method="post" action="/reservation/checkPrint">
 	<ul class="optioninfo">
 		<%-- <c:forEach var="vo" items="${list}"> --%>
 		<li>홀선택</li>

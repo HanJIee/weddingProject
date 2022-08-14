@@ -12,5 +12,6 @@
 	<a href="board/*">공지사항</a>
 	<a href="board/*">갤러리</a>
 	<h2>예약관리</h2>
-	<a href="admin/adReservation">예약관리</a>
+	<a href="admin/adReservation">예약수정</a>
+	<a href="admin/adCheck">문의관리</a>
 </div>

@@ -6,4 +6,8 @@
 	<select id = "loginOk" resultType="UserVO">
 		select userid from user where userid=#{userid} and userpwd=#{userpwd}
 	</select>
+	<insert id="signUpOk">
+		insert into user(userid, userpwd, tel, gender)
+		values(#{userid}, #{userpwd},#{tel},#{gender})
+	</insert>
 </mapper>

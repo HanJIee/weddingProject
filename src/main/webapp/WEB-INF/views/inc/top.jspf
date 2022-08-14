@@ -37,12 +37,12 @@
          <a href="/user/signUp">회원가입</a>
       </c:if>
       <c:if test="${logStatus=='Y' }">
-         ${logId }님<a href="/user/logout">로그아웃</a>
+         ${logId }님 | <a href="/user/logout">로그아웃</a>
       </c:if>   
 	</div>
 	
 	<!-- 로고 -->
-	<div id="logo"><a href="#"><img src="/img/logo.png" width="250"></a></div>
+	<div id="logo"><a href="/"><img src="/img/logo.png" width="250"></a></div>
 	
 	<ul class="popmenu">
 	  <li>
@@ -65,7 +65,7 @@
 	  	<a href="#">GUIDE</a>
 	    <ul>
 	      <li><a href="/guide/orderList">식순리스트</a></li>
-	      <li><a href="#">체크리스트</a></li>
+	      <li><a href="/guide/checkList">체크리스트</a></li>
 	    </ul>
 	  </li>
 	  

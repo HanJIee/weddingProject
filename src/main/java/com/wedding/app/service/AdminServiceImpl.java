@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.wedding.app.dao.AdminDAO;
+import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.ReservationVO;
 
 @Service
@@ -32,6 +33,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int reservationMultiChange(ReservationVO vo) {
 		return dao.reservationMultiChange(vo);
+	}
+
+	@Override
+	public List<DaychangeVO> adCheck() {
+		return dao.adCheck();
 	}
 
 	

@@ -6,12 +6,12 @@
 	ul,li{
 		margin:0; padding:0; list-style-type:none;
 	}
-	#topImg>img{
+	#topimg{height: 300px;overflow: hidden;}	
+	#topimg>img{
 	width: 1980px;
 	position: relative;
 	bottom: 600px;
 	}
-	#topimg{height:300px; overflow:hidden;}
 	#headtitle{
 		text-align: center;
 		line-height: 20px;
@@ -36,8 +36,7 @@
 		line-height:50px;
 		text-align:center; 
 		background-color: orange;
-		
-		font-size:1.2em;
+		font-weight:bold;
 	}
 	.menu>li:first-child{
 		background-color:white;
@@ -85,16 +84,16 @@
 	
 	
 </script>
-<div class="box">
-	<div id="topimg">
-		<img src="/img/h01.jpg"/>
-	</div>
-	<div>
-		<ul class="menu">
-			<li><a href="orderList">식순리스트</a></li>
-			<li><a href="checkList">체크리스트</a></li>
-		</ul>
-	</div>
+<div id="topimg">
+	<img src="/img/001.jpg"/>
+</div>
+<div>
+	<ul class="menu">
+		<li><a href="orderList">식순리스트</a></li>
+		<li><a href="checkList">체크리스트</a></li>
+	</ul>
+</div>
+<div class="box">	
 	<div id="headtitle">
 		<h1>Wedding Program</h1>
 		<P>결혼식 진행순서에 대해 안내해 드립니다.</P>

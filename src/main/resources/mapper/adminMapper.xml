@@ -30,5 +30,8 @@
 			</foreach>
 		</where>
 	</update>
+	<select id="adCheck" resultType="DaychangeVO">
+		select userid, change, date_format(changeday,'%Y-%c-%e') changeday from daychange 
+	</select>
 	
 </mapper>

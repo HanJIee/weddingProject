@@ -9,4 +9,5 @@ import com.wedding.app.vo.UserVO;
 @Repository
 public interface UserDAO {
 	public UserVO loginOk(UserVO vo);
+	public int signUpOk(UserVO vo);
 }
