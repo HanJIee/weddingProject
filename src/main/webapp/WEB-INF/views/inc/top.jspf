@@ -72,9 +72,9 @@
 	   <li>
 	  	<a href="#">NEWS</a>
 	    <ul>
-	      <li><a href="#">이벤트</a></li>
-	      <li><a href="#">공지사항</a></li>
-	      <li><a href="#">갤러리</a></li>
+	      <li><a href="/news/event">이벤트</a></li>
+	      <li><a href="/news/notice">공지사항</a></li>
+	      <li><a href="/news/gallery">갤러리</a></li>
 	    </ul>
 	  </li>
 	  

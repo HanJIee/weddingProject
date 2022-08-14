@@ -10,4 +10,5 @@ public interface ReservationService {
 	public List<ReservationVO> reservationList(String hallname);
 	public ReservationVO getInfo(String userid);
 	public int modifyOk(DaychangeVO vo);
+	public int consultOk(ReservationVO vo);
 }

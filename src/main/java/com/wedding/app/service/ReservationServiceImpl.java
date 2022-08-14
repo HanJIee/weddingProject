@@ -30,6 +30,11 @@ public class ReservationServiceImpl implements ReservationService {
 		return dao.modifyOk(vo);
 	}
 
+	@Override
+	public int consultOk(ReservationVO vo) {
+		return dao.consultOk(vo);
+	}
+
 
 	
 

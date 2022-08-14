@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.wedding.app.dao.AdminDAO;
+import com.wedding.app.vo.BoardVO;
 import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.ReservationVO;
+import com.wedding.app.vo.StaffVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -39,6 +41,28 @@ public class AdminServiceImpl implements AdminService {
 	public List<DaychangeVO> adCheck() {
 		return dao.adCheck();
 	}
+
+	@Override
+	public StaffVO loginOk(StaffVO vo) {
+		return dao.loginOk(vo);
+	}
+
+	@Override
+	public int adBoardOk(BoardVO vo) {
+		return dao.adBoardOk(vo);
+	}
+
+	@Override
+	public BoardVO getBoard(int no) {
+		return dao.getBoard(no);
+	}
+	
+	@Override
+	public int adBoardEditOk(BoardVO vo) {
+		return dao.adBoardEditOk(vo);
+	}
+
+	
 
 	
 }

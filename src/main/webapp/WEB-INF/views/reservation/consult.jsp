@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+<link rel="stylesheet" href="/css/consult.css" type="text/css">
 <style>
-	ul, li{
+	body, ul, li{
 	margin: 0;
 	padding: 0;
 	}
@@ -20,9 +20,27 @@
 	#topImg{height: 300px;
 	overflow: hidden;}	
 	}
-
-	.menu{
-		background-color: red;
+	
+	
+	#headtitle{
+		text-align: center;
+		line-height: 20px;
+	}
+	#headtitle h1{
+		text-align: center;
+		margin-top: 150px;
+		font-size: 50px;
+		font-family: Bell MT;
+		color: #FFA200;
+		font-weight: bold;
+	}
+	#headtitle p{
+		text-align: center;
+		color: #FFA200;
+		font-size: 20px;
+		font-family: Bell MT;
+		margin-bottom: 100px;
+	
 	}
 	
 	.menu>li{
@@ -31,35 +49,15 @@
 		height:50px;
 		line-height:50px;
 		text-align:center; 
-		background-color: #FFA200;
-		font-weight: bold;
+		background-color: orange;
+		font-weight:bold;
 	}
-	.menu>li:first-child{
+	.menu>li:last-child{
 		background-color:white;
 	}
-	
-	#headtitle{
-		text-align: center;
-		line-height: 20px;
+	.menu>li:first-child>a{
+		color:white;
 	}
-	#headtitle h1{
-		margin-top: 150px;
-		font-size: 50px;
-		font-family: Bell MT;
-		color: #FFA200;
-		font-weight: bold;
-	}
-	#headtitle p{
-		color: #FFA200;
-		font-size: 20px;
-		font-family: Bell MT;
-		margin-bottom: 100px;
-	}
-	
-	#info{text-align:center;}
-	#info input[type="text"], #info input[type="date"]{height:30px;}
-	
-	
 	
 	
 </style>
@@ -80,7 +78,7 @@ $(function(){
  				});
  				
  				console.log(disabledDays);
- 				$("#datepicker").datepicker({
+ 				$("#dday").datepicker({
  			        changeMonth:true,
  			        changeYear:true,
  			        yearRange:"2022:2025",
@@ -100,7 +98,8 @@ $(function(){
  			    });
  			}
  		});
- 	});    
+ 	}); 
+ 	
 });    
  
 // 특정날짜들 배열
@@ -133,52 +132,64 @@ function disableAllTheseDays(date) {
 
 <div id="headtitle">
 	<h1>WEDDING RESERVATION</h1>
-	<P>문의사항을 적어주시면 신속하게 답변드리겠습니다.</P>
+	<P>예약문의신청을 적어주시면 신속하게 답변드리겠습니다.</P>
 </div>
+
+
 <!-- 예식정보 -->
-<div id="info">
-	<h2>예식정보</h2>
-	<span>*필수입력</span>
-	
+<div id="consultFrm">
+	<div class="titlebox">
+		<h2>예식정보 <span>*필수입력</span></h2>
+	</div>	
+	<form method="post" action="/reservation/consultOk" id="boardFrm">
 	<ul class="optioninfo">
-		<li>홀선택*</li>
-		<li>
+		<li>홀선택<span>*</span></li>
+		<li >
 			<select name="hallname" id="hallname">
 			<option>가든홀1</option>
 			<option>가든홀2</option>
 			</select>
 		</li>
-		<li>예상인원*</li>
-		<li><input type="text" name="scale" id="scale"/></li>	
-		<li>예식일*</li>
-		<li><input type="text" id="datepicker"></li>
-		<li>신부메이크업</li>
+		
+		<li>예상인원<span>*</span></li>
+		<li><input type="text" name="scale" id="scale"/></li>
+		
+		
+		<li>예식일<span>*</span></li>
+		<li id="daybox"><input type="text" name="dday" id="dday"></li>
+			
+		<li id="makeupbox">신부메이크업</li>
 		<li>
-			<input type="radio" name="makeup" value="신청"/>신청
-			<input type="radio" name="makeup" value="신청안함"/>신청안함
+			<select name="makeup" id="makeup">
+			<option>Y</option>
+			<option>N</option>
+			</select>
 		</li>
+		
 		<li>드레스대여</li>
 		<li>
-			<input type="radio" name="dress" value="신청"/>신청
-			<input type="radio" name="dress" value="신청안함"/>신청안함
+			<select name="dress" id="dress">
+			<option>Y</option>
+			<option>N</option>
+			</select>
 		</li>
 	</ul>
-	
-	<h2>문의사항</h2>
-	
+	<ul class="titlebox">
+		<h2>문의사항</h2>
+	</ul>
 	<ul class="optioninfo">
-		<li>원하시는 상담일정*</li>
+		<li>원하시는 상담일정<span>*</span></li>
 		<li><input type="date" name="cday" id="cday"/></li>
 		<li>제목</li>
 		<li><input type="text" name="subject" id="subject"/></li>
 		<li>내용</li>
-		<li><textarea name="content" cols="146" rows="20"></textarea></li>
+		<li><textarea name="content" id="content" cols="69" rows="10"></textarea></li>
 	</ul>
 	
 	<ul id="submitbtm">
 		<li><input type="submit" value="접수하기"/></li>
 		<li><input type="reset" value="취소"/></li>
 	</ul>
-
+	</form>
 </div>
 

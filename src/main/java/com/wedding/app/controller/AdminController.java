@@ -3,26 +3,52 @@ package com.wedding.app.controller;
 import java.nio.charset.Charset;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wedding.app.service.AdminService;
+import com.wedding.app.vo.BoardVO;
 import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.ReservationVO;
+import com.wedding.app.vo.StaffVO;
 
 @RestController
 @RequestMapping("/staff/*")
 public class AdminController {
 	@Inject
 	AdminService service;
+	
+	@GetMapping("adlogin")
+	public ModelAndView adlogin() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("staff/adlogin");
+		return mav;
+	}
+	@PostMapping("loginOk")
+	public ModelAndView loginOk(StaffVO vo, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		
+		StaffVO svo = service.loginOk(vo);
+		if(svo!=null) {
+			session.setAttribute("adId", svo.getStaffid());
+			session.setAttribute("adStatus", "Y");
+			mav.setViewName("redirect:admin");
+		}else {
+			mav.setViewName("redirect:adlogin");
+		}
+		return mav;
+	}
 	
 	
 	//관리자페이지 이동
@@ -34,6 +60,69 @@ public class AdminController {
 	}
 	
 	//==============================================================================
+	//공지사항 글쓰기 페이지 이동
+	@GetMapping("adBoard")
+	public ModelAndView adBoard() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("staff/adBoard");
+		return mav;
+	}
+	//공지사항 글쓰기 DB
+	@PostMapping("adBoardOk")
+	public ResponseEntity<String> adBoardOk(BoardVO vo, HttpServletRequest request){
+		vo.setStaffid((String)request.getSession().getAttribute("adId"));
+		vo.setIp(request.getRemoteAddr());
+		
+		String msg = "<script>";
+		try {
+			service.adBoardOk(vo);
+			msg += "alert('공지사항 글이 등록되었습니다.');";
+			msg += "location.href='/news/notice';";
+			//글쓰기 성공시 이동 페이지 boardList로 변경해야함
+		}catch(Exception e){
+			msg += "alert('공지사항 등록에 실패하였습니다.');";
+			msg += "history.go(-1);";
+		}
+		msg += "</script>";
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("text", "html", Charset.forName("UTF-8")));
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+		ResponseEntity<String> entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
+		return entity;
+	}
+	//공지사항 글수정 페이지 이동
+	@GetMapping("adBoardEdit/{num}")
+	public ModelAndView adBoardEdit(@PathVariable("num") int no) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("vo", service.getBoard(no));
+		mav.setViewName("staff/adBoardEdit");
+		return mav;
+	}
+	//공지사항 글수정 DB
+	@PostMapping("adBoardEditOk")
+	public ResponseEntity<String> adBoardEditOk(BoardVO vo, HttpSession session){
+		vo.setStaffid((String)session.getAttribute("adId"));
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("text", "html", Charset.forName("UTF-8")));
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+		
+		String msg = "<script>";
+		try {
+			service.adBoardEditOk(vo);
+			msg += "alert('글이 수정되었습니다.');";
+			msg += "location.href='/news/notice';";
+			//수정 성공시 이동 페이지 boardList로 변경해야함
+		}catch(Exception e){
+			msg += "alert('공지사항 수정에 실패하였습니다.');";
+			msg += "history.go(-1);";
+		}
+		msg += "</script>";
+		
+		ResponseEntity<String> entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
+		return entity;
+	}
+	
+	//===============================================================================
 	
 	//===============================================================================
 	//예약관리 페이지 이동
