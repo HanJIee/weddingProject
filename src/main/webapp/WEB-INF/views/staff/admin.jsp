@@ -13,4 +13,5 @@
 	<a href="board/*">갤러리</a>
 	<h2>예약관리</h2>
 	<a href="admin/adReservation">예약관리</a>
+	<!--  -->
 </div>
