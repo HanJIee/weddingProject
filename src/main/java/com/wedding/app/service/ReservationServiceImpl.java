@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.wedding.app.dao.ReservationDAO;
+import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.ReservationVO;
 
 @Service
@@ -20,8 +21,17 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
-	public ReservationVO checkPrint(ReservationVO vo) {
-		return dao.checkPrint(vo);
+	public ReservationVO getInfo(String userid) {
+		return dao.getInfo(userid);
 	}
+
+	@Override
+	public int modifyOk(DaychangeVO vo) {
+		return dao.modifyOk(vo);
+	}
+
+
+	
+
 	
 }

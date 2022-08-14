@@ -18,4 +18,10 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return dao.loginOk(vo);
 	}
+
+	@Override
+	public int signUpOk(UserVO vo) {
+		// TODO Auto-generated method stub
+		return dao.signUpOk(vo);
+	}
 }

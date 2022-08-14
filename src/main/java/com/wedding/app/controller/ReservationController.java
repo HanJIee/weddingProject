@@ -1,5 +1,6 @@
 package com.wedding.app.controller;
 
+import java.nio.charset.Charset;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wedding.app.service.ReservationService;
+import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.ReservationVO;
+import com.wedding.app.vo.UserVO;
 
 @RestController
 @RequestMapping("/reservation/*")
@@ -46,35 +53,53 @@ public class ReservationController {
 	
 	//예약확인페이지 이동
 		@GetMapping("check")
-		public ModelAndView check() {
+		public ModelAndView check(HttpSession session) {
+			String userid = (String)session.getAttribute("logId");
 			
+			ReservationVO vo =service.getInfo(userid);
 			ModelAndView mav = new ModelAndView();
+			
+			mav.addObject("vo",vo);
+			
 			mav.setViewName("reservation/check");
 			return mav;
 		}
-	//예약확인페이지 정보출력
-		@PostMapping("checkPrint")
-		public ModelAndView checkPrint(ReservationVO vo, HttpSession session) {
-			vo.setUserid((String)session.getAttribute("logId"));
-			
-			ModelAndView mav = new ModelAndView();
-			
-			//mav.addObject("list", service.checkPrint(vo));
-			mav.addObject("vo", vo);
-			mav.setViewName("reservation/check");
-			return mav;
-		}
-		/*public String checkPrint(ReservationVO vo, HttpSession session) {
-			//로그인 아이디를 얻어 vo에 userid에 셋팅
-			vo.setUserid((String)session.getAttribute("logId"));
-		}*/
+	
 		
 		
-	//예약상담페이지 이동
+	//예약변경페이지 이동
 	@GetMapping("modify")
-	public ModelAndView modify() {
+	public ModelAndView modify(HttpSession session) {
+		String userid = (String)session.getAttribute("logId");
+		
+		ReservationVO vo =service.getInfo(userid);
 		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("vo",vo);
 		mav.setViewName("reservation/modify");
 		return mav;
 	}	
+	
+	@PostMapping("modifyOk")
+	   public ResponseEntity<String> modifyOk(DaychangeVO vo, HttpSession session){
+	      
+	      ResponseEntity<String> entity = null;
+	      HttpHeaders headers = new HttpHeaders();
+	      headers.setContentType(new MediaType("text","html",Charset.forName("UTF-8")));
+	      headers.add("Content-Type", "text/html; charset=UTF-8");
+	      
+	      vo.setUserid((String)session.getAttribute("logId"));
+	      int cnt = service.modifyOk(vo);
+	      String msg = "<script>";
+	      
+	      if(cnt>0) {
+	    	  msg += "alert('예약변경/취소가 접수되었습니다.');";
+	      }else {
+	    	  msg += "alert('실패!');";
+	      }
+	      msg += "location.href='/reservation/check';";
+	      msg += "</script>";
+	      entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
+	      return entity;
+	   }
 }

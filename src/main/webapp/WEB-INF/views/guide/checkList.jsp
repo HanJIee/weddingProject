@@ -6,7 +6,7 @@
 	ul,li{
 		margin:0; padding:0; list-style-type:none;
 	}
-	#topImg>img{
+	#topimg>img{
 	width: 1980px;
 	position: relative;
 	bottom: 600px;
@@ -36,8 +36,7 @@
 		line-height:50px;
 		text-align:center; 
 		background-color: orange;
-		
-		font-size:1.2em;
+		font-weight:bold;
 	}
 	.menu>li:last-child{
 		background-color:white;
@@ -85,9 +84,9 @@
 	
 	
 </script>
-<div class="box">
+
 	<div id="topimg">
-		<img src="/img/h01.jpg"/>
+		<img src="/img/001.jpg"/>
 	</div>
 	<div>
 		<ul class="menu">
@@ -95,6 +94,7 @@
 			<li><a href="checkList">체크리스트</a></li>
 		</ul>
 	</div>
+<div class="box">	
 	<div id="headtitle">
 		<h1>Wedding CheckList</h1>
 		<P>결혼식 체크리스트에 대해 안내해 드립니다.</P>

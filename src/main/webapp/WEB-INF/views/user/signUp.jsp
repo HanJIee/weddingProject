@@ -28,13 +28,46 @@ $(document).ready(function(){
     $("#day  > option[value="+day+"]").attr("selected", "true");       
   
 })
+
+	$(function(){
+		//유효성 검사
+		$("#sign").submit(function(){
+			//아이디
+			if($("#userid").val()==""){
+				alert("아이디를 입력하세요..");
+				return false;
+			}
+			if($("#userpwd").val()==""){
+				alert("비밀번호를 입력하세요.");
+				return false;
+			}
+			if($("#userpwd2").val()==""){
+				alert("비밀번호 재확인란을 입력해주세요.");
+				return false;
+			}
+			if($("#userpwd").val()!=$("#userpwd2").val()){
+				alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+				return false;
+			}
+			//연락처
+			if($("#tel1").val()=="" || $("#tel2").val()=="" || $("#tel3").val()==""){
+				alert("연락처를 입력하세요...");
+				return false;
+			}
+			return true;
+		});
+	});
 </script>
+
+
+
 <link rel="stylesheet" href="/css/signup.css" type="text/css">
+
 <div id="signFrm">
 	<h1>회원가입</h1>
 	<h2>작성자정보</h2>
 	<span>필수입력</span>
-	<form method="post" action="/user/signUp" id="sign">
+	<form method="post" action="/user/signUpOk" id="sign">
 		<ul>
 			<li>아이디*</li>
 				<li><input type="text" name="userid" id="userid" /></li>
@@ -42,8 +75,6 @@ $(document).ready(function(){
 				<li><input type="password" name="userpwd" id="userpwd" /></li>
 			<li>비밀번호 재확인*</li>
 				<li><input type="password" name="userpwd2" id="userpwd2" /></li>
-			<li>성명*</li>
-				<li><input type="text" name="username" id="username" /></li>
 			<li>생년월일*</li>
 			<li>
 				<select name="yy" id="year"></select>	
@@ -53,8 +84,8 @@ $(document).ready(function(){
 			<li>성별*</li>
 			<li>
 				<select>
-					<option>남</option>
-					<option>여</option>
+					<option id="M">남</option>
+					<option id="W">여</option>
 				</select>
 			</li>
 			<li>연락처*</li>

@@ -34,6 +34,9 @@
 		background-color: #FFA200;
 		font-weight: bold;
 	}
+	.menu>li:first-child{
+		background-color:white;
+	}
 	
 	#headtitle{
 		text-align: center;
@@ -66,7 +69,6 @@
 $(function(){
     
  	$("#hallname").change(function(){
- 		console.log(11111)
  		$.ajax({
  			url:"/reservation/calendar",
  			data:{hallname:$("#hallname").val()},
@@ -76,6 +78,7 @@ $(function(){
  				$result.each(function(i, day){
  					disabledDays.push(day.dday);
  				});
+ 				
  				console.log(disabledDays);
  				$("#datepicker").datepicker({
  			        changeMonth:true,
@@ -123,8 +126,8 @@ function disableAllTheseDays(date) {
 
 <div>
 	<ul class="menu">
-		<li><a href="">예약상담</a></li>
-		<li><a href="">예약확인</a></li>
+		<li><a href="consult">예약상담</a></li>
+		<li><a href="check">예약확인</a></li>
 	</ul>
 </div>
 

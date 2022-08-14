@@ -5,9 +5,7 @@ body, ul, li{
 }
 
 .bottom{
-
 	height:155px;
-	
 	border-top : 1px solid #ddd;	
 }
 #bottom_info{
@@ -19,8 +17,8 @@ body, ul, li{
 	float: left;
 	width: 25%;
 	text-align: left;
-	margin: 30px 0;
 	line-height: 25px;
+	margin: 30px 0;
 }
 
 .info h2{
@@ -35,8 +33,7 @@ body, ul, li{
 
 @media all and (min-width:601px) and (max-width:1350px){
 	
-	.bottom{
-	 
+	.bottom{ 
 	height:155px;
 	margin: 0 30px;
 }

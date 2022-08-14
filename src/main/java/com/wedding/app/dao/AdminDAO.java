@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.ReservationVO;
 
 @Mapper
@@ -15,4 +16,5 @@ public interface AdminDAO {
 	public int reservationMultiCancel(ReservationVO vo);
 	public int reservationMultiComplete(ReservationVO vo);
 	public int reservationMultiChange(ReservationVO vo);
+	public List<DaychangeVO> adCheck();
 }

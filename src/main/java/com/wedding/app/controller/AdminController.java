@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wedding.app.service.AdminService;
+import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.ReservationVO;
 
 @RestController
@@ -111,6 +112,17 @@ public class AdminController {
 			
 			entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
 			return entity;
+		}
+		
+		//문의 내역 가져오기
+		@GetMapping("adCheck")
+		public ModelAndView adCheck(){
+			
+			 ModelAndView mav = new ModelAndView();
+			 
+			 mav.addObject("list",service.adCheck());
+			 mav.setViewName("staff/adCheck");
+			 return mav;
 		}
 		
 	
