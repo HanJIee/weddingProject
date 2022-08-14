@@ -8,10 +8,10 @@
 	<h1>관리자페이지</h1>
 	<hr/>
 	<h2>게시판관리</h2>
-	<a href="board/*">이벤트</a>
-	<a href="board/*">공지사항</a>
-	<a href="board/*">갤러리</a>
+	<a href="*">이벤트</a>
+	<a href="adBoard">공지사항</a>
+	<a href="*">갤러리</a>
 	<h2>예약관리</h2>
-	<a href="admin/adReservation">예약수정</a>
-	<a href="admin/adCheck">문의관리</a>
+	<a href="adReservation">예약수정</a>
+	<a href="adCheck">문의관리</a>
 </div>

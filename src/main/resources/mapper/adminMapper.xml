@@ -3,6 +3,9 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wedding.app.dao.AdminDAO">
+	<select id="loginOk" resultType="StaffVO">
+		select staffid from staff where staffid=#{staffid} and staffpwd=#{staffpwd}
+	</select>
 	<select id="adList" resultType="ReservationVO">
 		select no, userid, hallname, date_format(dday,'%Y-%c-%e') dday, scale, date_format(dday,'%Y-%c-%e') cday, dress, makeup, stabdby from reservation
 	</select>
@@ -31,7 +34,16 @@
 		</where>
 	</update>
 	<select id="adCheck" resultType="DaychangeVO">
-		select userid, change, date_format(changeday,'%Y-%c-%e') changeday from daychange 
+		select userid, `change`, date_format(changeday,'%Y-%c-%e') changeday from daychange order by userid asc, `change` desc, changeday desc
 	</select>
+	<insert id="adBoardOk">
+		insert into board(subject, content, staffid, ip) values(#{subject}, #{content}, #{staffid}, #{ip})
+	</insert>
+	<select id="getBoard" resultType="BoardVO" parameterType="int">
+		select no, subject, content, hit, staffid, writedate from board where no=${param1} 
+	</select>
+	<update id="adBoardEditOk" parameterType="BoardVO">
+		update board set subject=#{subject}, content=#{content} where no=${no} and staffid=#{staffid}
+	</update> 
 	
 </mapper>

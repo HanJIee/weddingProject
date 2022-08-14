@@ -46,7 +46,8 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		
 		UserVO logVO = service.loginOk(vo);
-
+		
+		
 		if(logVO!=null) {//로그인 성공
 			session.setAttribute("logId", logVO.getUserid());
 			session.setAttribute("logStatus", "Y");

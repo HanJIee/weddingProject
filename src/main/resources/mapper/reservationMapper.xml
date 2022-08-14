@@ -13,4 +13,8 @@
       insert into daychange(userid, `change`, changeday)
       values(#{userid}, #{change}, #{changeday});
    </insert>
+   <insert id="consultOk">
+   	insert into reservation(userid, hallname, scale, dday, makeup, dress, cday, subject, content) 
+   	values(#{userid}, #{hallname}, #{scale}, #{dday}, #{makeup}, #{dress}, #{cday}, #{subject}, #{content})
+   </insert>
 </mapper>	

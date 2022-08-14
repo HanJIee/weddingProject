@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+.titlebox{
+	margin: 0 auto;
+	text-align: left;
+	
+	width: 500px;
+	margin-bottom: 50px;
+	border-bottom: 2px solid #FFA200;
+}
+.titlebox h2{
+ 	margin: 10px 0;
+}
+
+.titlebox span{
+	margin-left: 330px;
+	font-size: 14px;
+}
+.titlebox h2:last-child{
+	margin-top: 80px;
+}
+
+span{color: red;}
+
+#consultFrm li{
+	font-weight: bold;
+	line-height: 30px;
+}
+
+#consultFrm{
+	margin: 0 auto;
+	text-align: center;
+	width:500px;
+	
+}
+#consultFrm input{width: 100%;}
+
+#consultFrm li{
+	text-align: left;
+	margin-bottom: 5px;
+}
+input{
+	margin-bottom: 20px;
+	height: 25px;
+}
+
+#hallname{
+	width: 505px;
+	height: 32px;
+	margin-bottom: 20px;
+}
+
+.ui-datepicker-trigger{
+	position: relative;
+	bottom: 44px;
+	left: 480px;
+	}
+	
+#makeupbox{
+	margin-top: 50px;
+}
+#makeup{
+	width: 505px;
+	height: 32px;
+	margin-bottom: 20px;
+}
+
+#dress{
+	width: 505px;
+	height: 32px;
+	margin-bottom: 20px;
+}
+	
+#consultFrm [type="submit"]{
+	width: 505px;
+	margin-top: 40px;
+	height: 40px;
+	margin-bottom: 15px;
+	border: none;
+	color: white;
+	background-color: #FFA200;
+	border-radius: 2px;
+	
+}	
+
+#consultFrm [type="reset"]{
+	width: 505px;
+	height: 40px;
+	margin-bottom: 90px;
+	border: none;
+	color: white;
+	background-color: #FFA200;
+	border-radius: 2px;
+	
+}	
