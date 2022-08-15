@@ -29,12 +29,14 @@
 	#headtitle h1{
 		text-align: center;
 		margin-top: 150px;
+		margin-bottom: 5px;
 		font-size: 50px;
 		font-family: Bell MT;
 		color: #FFA200;
 		font-weight: bold;
 	}
 	#headtitle p{
+		margin-top:5px;
 		text-align: center;
 		color: #FFA200;
 		font-size: 20px;
@@ -78,7 +80,7 @@ $(function(){
  				});
  				
  				console.log(disabledDays);
- 				$("#dday").datepicker({
+ 				$("#datepicker").datepicker({
  			        changeMonth:true,
  			        changeYear:true,
  			        yearRange:"2022:2025",
@@ -131,7 +133,7 @@ function disableAllTheseDays(date) {
 </div>
 
 <div id="headtitle">
-	<h1>WEDDING RESERVATION</h1>
+	<h1>Wedding Reservation</h1>
 	<P>예약문의신청을 적어주시면 신속하게 답변드리겠습니다.</P>
 </div>
 
@@ -152,25 +154,25 @@ function disableAllTheseDays(date) {
 		</li>
 		
 		<li>예상인원<span>*</span></li>
-		<li><input type="text" name="scale" id="scale"/></li>
+		<li><input type="text" name="scale" name="scale"  id="scale"/></li>
 		
 		
 		<li>예식일<span>*</span></li>
-		<li id="daybox"><input type="text" name="dday" id="dday"></li>
+		<li id="daybox"><input type="text" name="dday" id="datepicker"></li>
 			
 		<li id="makeupbox">신부메이크업</li>
 		<li>
 			<select name="makeup" id="makeup">
-			<option>Y</option>
-			<option>N</option>
+			<option>YES</option>
+			<option>NO</option>
 			</select>
 		</li>
 		
 		<li>드레스대여</li>
 		<li>
 			<select name="dress" id="dress">
-			<option>Y</option>
-			<option>N</option>
+			<option>YES</option>
+			<option>NO</option>
 			</select>
 		</li>
 	</ul>
@@ -183,7 +185,7 @@ function disableAllTheseDays(date) {
 		<li>제목</li>
 		<li><input type="text" name="subject" id="subject"/></li>
 		<li>내용</li>
-		<li><textarea name="content" id="content" cols="69" rows="10"></textarea></li>
+		<li><textarea name="content" cols="69" rows="10"></textarea></li>
 	</ul>
 	
 	<ul id="submitbtm">

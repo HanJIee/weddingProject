@@ -4,9 +4,21 @@
 	#topImg>img{width: 1980px; position: relative; bottom: 600px;}		
 	#topImg{height: 300px; overflow: hidden;}		
 
-	.menu{ background-color: red;}
-	.menu>li{float:left; width:50%; height:50px; line-height:50px; text-align:center; background-color: #FFA200; font-weight: bold;}
-	.menu>li:last-child{background-color:white;}
+	.menu>li{
+		float:left;
+		width:50%;
+		height:50px;
+		line-height:50px;
+		text-align:center; 
+		background-color: orange;
+		font-weight:bold;
+	}
+	.menu>li:last-child{
+		background-color:white;
+	}
+	.menu>li:first-child>a{
+		color:white;
+	}
 	
 	#headtitle{text-align: center; line-height: 20px;}
 	#headtitle h1{margin-top: 150px; font-size: 50px; font-family: Bell MT; color: #FFA200; font-weight: bold;}
@@ -17,9 +29,11 @@
 	
 	#gMap{
 		margin:0 auto; width: 1200px; height:700px; border:1px solid gray;
+		margin-bottom: 120px;
 	}
 	#ad{
 		font-size:1.5em; text-align:center; line-height:100px; font-weight:bold; 
+		margin-bottom: 20px;
 	}
 </style>
 

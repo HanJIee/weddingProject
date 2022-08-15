@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet" href="/css/check.css" type="text/css">
 <style>
 	ul, li{
 	margin: 0;
@@ -15,47 +16,46 @@
 	#topImg{height: 300px;
 	overflow: hidden;}	
 	}
-
-	.menu{
-		background-color: red;
-	}
-	
-	.menu>li{
-		float:left;
-		width:50%;
-		height:50px;
-		line-height:50px;
-		text-align:center; 
-		background-color: #FFA200;
-		font-weight: bold;
-	}
-	.menu>li:last-child{
-		background-color:white;
-	}
 	
 	#headtitle{
 		text-align: center;
 		line-height: 20px;
 	}
 	#headtitle h1{
+		text-align: center;
 		margin-top: 150px;
+		margin-bottom: 5px;
 		font-size: 50px;
 		font-family: Bell MT;
 		color: #FFA200;
 		font-weight: bold;
 	}
 	#headtitle p{
+		margin-top:10px;
+		text-align: center;
 		color: #FFA200;
 		font-size: 20px;
 		font-family: Bell MT;
 		margin-bottom: 100px;
 	}
+	.menu>li{
+		float:left;
+		width:50%;
+		height:50px;
+		line-height:50px;
+		text-align:center; 
+		background-color: orange;
+		font-weight:bold;
+	}
+	.menu>li:first-child{
+		background-color:white;
+	}
+	.menu>li:last-child>a{
+		color:white;
 	
-	#info{text-align:center;}
-	#info input[type="text"], #info input[type="date"]{height:30px;}
-	.optioninfo input{background-color:#ddd; border:none; width:60%;}
 	
-	.modify{text-align:center;}
+	
+
 	
 </style>
 
@@ -75,24 +75,30 @@
 </div>
 
 <div id="info">
-	<h2>예식확인</h2>
-	<form method="post" action="/reservation/checkPrint">
-	<ul class="optioninfo">
-		<%-- <c:forEach var="vo" items="${list}"> --%>
-		<li>홀선택</li>
-		<li><input type="text" name="hallname" id="hallname" value="${vo.hallname}" readonly/></li>
-		<li>예상인원</li>
-		<li><input type="text" name="scale" id="scale" value="${vo.scale}" readonly/></li>	
-		<li>예식일</li>
-		<li><input type="text" id="dday" value="${vo.dday}"></li>
-		<li>신부메이크업</li>
-		<li><input type="text" name="makeup" value="${vo.makeup}"/></li>
-		<li>드레스대여</li>
-		<li><input type="text" name="dress" value="${vo.dress }"/></li>
-		<%-- </c:forEach> --%>
-	</ul>
+	<div id="infobox">
+		<h2>예식확인</h2>
+	</div>
+	<form method="post" action="/reservation/checkPrint" id="checkFrm">
+		<div id="optioninfo">
+			<ul>
+				<li>홀선택</li>
+				<li><input type="text" name="hallname" id="hallname" value="${vo.hallname}" readonly/></li>
+				
+				<li>예상인원</li>
+				<li><input type="text" name="scale" id="scale" value="${vo.scale}" readonly/></li>	
+				
+				<li>예식일</li>
+				<li><input type="text" id="dday" value="${vo.dday}"></li>
+				
+				<li>신부메이크업</li>
+				<li><input type="text" name="makeup" value="${vo.makeup}"/></li>
+				
+				<li>드레스대여</li>
+				<li><input type="text" name="dress" value="${vo.dress }"/></li>
+			</ul>
+		</div>
 	</form>
 </div>
-<div class="modify">
+<div id="modifyFrm">
 	<input type="button" id="modify" value="예약변경/취소" onclick="location.href='modify'"/>
 </div>

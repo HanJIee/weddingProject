@@ -10,7 +10,43 @@
 	
 	#headtitle{text-align: center; line-height: 30px;}
 	#headtitle h1{margin-top: 150px; font-size: 50px; font-family: Bell MT; color: #FFA200; font-weight: bold;}
-	#headtitle p{color: #FFA200; font-size: 20px; font-family: Bell MT; margin-bottom: 100px; }
+	#headtitle p{color: #FFA200; font-size: 20px; font-family: Bell MT; margin-bottom: 50px; }
+
+	#event{
+		display:flex;
+    	flex-wrap:wrap;
+    	margin:20px auto;
+    	margin-left:150px;
+    	text-align:center;
+		 
+	}
+	#event li{
+		width: 300px;
+			
+	}
+	#event ul{
+		width: 300px;
+		margin-right: 0;
+	}
+	#event a{
+		
+		margin-right: 20px;
+	}
+	
+	img{
+	
+		width:calc(33.333% - 10px);
+    	
+	}
+	#subbox{
+		font-weight: bold;
+		margin-top: 10px;
+		width: 300px;
+		margin-bottom: 30px;
+		
+	}
+	
+
 
 </style>
 
@@ -36,8 +72,8 @@
 		<a href="eventView?no=${vo.no}">
 			<ul>
 				<li><img src="/img/event/${vo.filename}" style=width:300px;height:300px;></li>
-				<li>${vo.subject}</li>
-				<li>${vo.content}</li>
+				<li id="subbox">${vo.subject}</li>
+				
 			</ul>
 		</a>
 	</c:forEach>

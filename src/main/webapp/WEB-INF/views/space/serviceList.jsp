@@ -16,8 +16,26 @@
 	#topImg{height: 300px;
 	overflow: hidden;}	
 	}
-	.menu{
-		background-color: red;
+	
+	#headtitle{
+		text-align: center;
+		line-height: 20px;
+	}
+	#headtitle h1{
+		text-align: center;
+		margin-top: 150px;
+		font-size: 50px;
+		font-family: Bell MT;
+		color: #FFA200;
+		font-weight: bold;
+	}
+	#headtitle p{
+		text-align: center;
+		color: #FFA200;
+		font-size: 20px;
+		font-family: Bell MT;
+		margin-bottom: 100px;
+	
 	}
 	
 	.menu>li{
@@ -26,27 +44,14 @@
 		height:50px;
 		line-height:50px;
 		text-align:center; 
-		background-color: #FFA200;
-		font-weight: bold;
+		background-color: orange;
+		font-weight:bold;
 	}
-	
-	#headtitle{
-		text-align: center;
-		line-height: 20px;
+	.menu>li:last-child{
+		background-color:white;
 	}
-	#headtitle h1{
-		margin-top: 150px;
-		font-size: 50px;
-		font-family: Bell MT;
-		color: #FFA200;
-		font-weight: bold;
-	}
-	#headtitle p{
-		color: #FFA200;
-		font-size: 20px;
-		font-family: Bell MT;
-		margin-bottom: 100px;
-	
+	.menu>li:first-child>a{
+		color:white;
 	}
 	
 	
@@ -61,13 +66,13 @@
 	
 	<div>
 		<ul class="menu">
-			<li><a href="">홀</a></li>
-			<li><a href="">부대시설/서비스</a></li>
+			<li><a href="hallList">홀</a></li>
+			<li><a href="serviceList">부대시설/서비스</a></li>
 		</ul>
 	</div>
 	
 	<div id="headtitle">
-		<h1>SESSION / SERVICE</h1>
+		<h1>Session / Service</h1>
 		<P>인생의 모든 순간을 빛낼 일생 단 한 번의 축제</P>
 	</div>
 

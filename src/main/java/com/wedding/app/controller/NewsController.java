@@ -36,25 +36,30 @@ public class NewsController {
 	@GetMapping("gallery")
 	public ModelAndView gallery() {
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", service.gallery());
 		mav.setViewName("news/gallery");
 		return mav;
 	}
 	
-	@GetMapping("eventWrite")
-	public ModelAndView eventWrite() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("news/eventWrite");
-		return mav;
-	}
 	
 	@GetMapping("eventView")
-	public ModelAndView eventView(@RequestParam("no") int no) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("vo", service.getEvent(no));
-		mav.setViewName("news/eventView");
-		return mav;
-	}
-	
+	   public ModelAndView eventView(@RequestParam("no") int no) {
+	      ModelAndView mav = new ModelAndView();
+	      StaffVO svo = service.getStaffId();
+	      mav.addObject("svo", svo);
+	      mav.addObject("vo", service.getEvent(no));
+	      mav.setViewName("news/eventView");
+	      return mav;
+	   }
+	@GetMapping("galleryView")
+	   public ModelAndView galleryView(@RequestParam("no") int no) {
+	      ModelAndView mav = new ModelAndView();
+	      StaffVO svo = service.getStaffId();
+	      mav.addObject("svo", svo);
+	      mav.addObject("vo", service.getGallery(no));
+	      mav.setViewName("news/galleryView");
+	      return mav;
+	   }
 
 	@GetMapping("noticeView")
 	public ModelAndView noticeView(@RequestParam("no")int no) {
@@ -78,5 +83,25 @@ public class NewsController {
 		}
 		return mav;
 	}
+	
+	@GetMapping("eventDel")
+	public ModelAndView eventDel(int no) {
+		ModelAndView mav = new ModelAndView();
+		int cnt = service.eventDel(no);
+		if(cnt>0) {
+			mav.setViewName("redirect:event");
+		}
+		return mav;
+	}
+	@GetMapping("galleryDel")
+	public ModelAndView galleryDel(int no) {
+		ModelAndView mav = new ModelAndView();
+		int cnt = service.galleryDel(no);
+		if(cnt>0) {
+			mav.setViewName("redirect:gallery");
+		}
+		return mav;
+	}
+	
 	
 }

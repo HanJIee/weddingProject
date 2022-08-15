@@ -1,0 +1,66 @@
+@charset "UTF-8";
+#infobox{
+	margin: 0 auto;
+	text-align: left;
+	width: 500px;
+	margin-bottom: 50px;
+	border-bottom: 2px solid #FFA200;
+}
+
+#infobox h2{
+ 	margin: 10px 0;
+}
+
+#changeinfo{
+	margin: 0 auto;
+	text-align: center;
+	width:500px;	
+}
+
+#changeinfo input{width: 100%;}
+
+#changeinfo li{
+	text-align: left;
+	margin-bottom: 5px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+input{
+	margin-bottom: 20px;
+	height: 30px;
+}
+
+#text{
+	margin-left: 120px;
+}
+
+#change{
+	width: 505px;
+	height: 35px;
+	margin-top: 15px;
+	margin-bottom: 50px;
+}
+
+.ui-datepicker-trigger{
+	position: relative;
+	bottom: 48px;
+	left: 480px;	
+}
+
+#modify{
+	margin: 0 auto;
+	text-align: center;
+}
+
+#modifyOk{
+	margin-left:10px;
+	width: 510px;
+	height: 40px;
+	color: white;
+	background-color: #FFA200;
+	border: none;
+	border-radius: 2px;
+	margin-top: 30px;
+	margin-bottom: 100px;
+}

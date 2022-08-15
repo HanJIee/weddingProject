@@ -49,5 +49,26 @@
 		insert into event(subject, content, staffid, filename) 
 		values(#{subject}, #{content}, #{staffid}, #{filename}) 
 	</insert> 
-	
+	<select id="dataSelect" resultType="EventVO">
+		select no, subject, content, staffid, filename, writedate from event where no=${param1}
+	</select>
+	<select id="getFilenames" resultType="EventVO">
+		select filename from event where no=${param1}
+	</select>
+	<update id="dataUpdate">
+		update event set subject=#{subject}, content=#{content}, filename=#{filename} where no=${no} and staffid=#{staffid}
+	</update>
+	<insert id="gdataInsert">
+		insert into gallery(subject, content, staffid, filename) 
+		values(#{subject}, #{content}, #{staffid}, #{filename})
+	</insert>
+	<select id="gdataSelect" resultType="GalleryVO">
+		select no, subject, content, staffid, filename, writedate from gallery where no=${param1}
+	</select>
+	<select id="ggetFilenames" resultType="GalleryVO">
+		select filename from gallery where no=${param1}
+	</select>
+	<update id="gdataUpdate">
+		update gallery set subject=#{subject}, content=#{content}, filename=#{filename} where no=${no} and staffid=#{staffid}
+	</update>
 </mapper>

@@ -27,14 +27,14 @@ a:link {
 	
 	
 .container{
-		width: 1300px; margin:0 auto;
+		width: 1400px;; margin:0 auto;
 }
 
 /*메인메뉴*/
 	.popmenu{
 		height:50px;
-		margin-left: 400px;
-		margin-right: 400px;
+		margin-left: 300px;
+		margin-right: 300px;
 		font-family: Bell MT;
 		
 	}
