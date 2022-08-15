@@ -35,8 +35,9 @@
 	<c:forEach var="vo" items="${list}">
 		<a href="eventView?no=${vo.no}">
 			<ul>
-				<li><img src="${vo.content}" style=width:300px;height:300px; onclick="openimg()"></li>
+				<li><img src="/img/event/${vo.filename}" style=width:300px;height:300px;></li>
 				<li>${vo.subject}</li>
+				<li>${vo.content}</li>
 			</ul>
 		</a>
 	</c:forEach>

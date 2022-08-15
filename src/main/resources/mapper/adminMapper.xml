@@ -44,6 +44,10 @@
 	</select>
 	<update id="adBoardEditOk" parameterType="BoardVO">
 		update board set subject=#{subject}, content=#{content} where no=${no} and staffid=#{staffid}
-	</update> 
+	</update>
+	<insert id="dataInsert">
+		insert into event(subject, content, staffid, filename) 
+		values(#{subject}, #{content}, #{staffid}, #{filename}) 
+	</insert> 
 	
 </mapper>

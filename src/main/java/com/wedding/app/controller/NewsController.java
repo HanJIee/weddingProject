@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wedding.app.service.NewsService;
-import com.wedding.app.vo.EventVO;
+import com.wedding.app.vo.StaffVO;
 
 @RestController
 @RequestMapping("/news/*")
@@ -60,11 +60,22 @@ public class NewsController {
 	public ModelAndView noticeView(@RequestParam("no")int no) {
 		//조회수 증가
 		service.hitCount(no);
+		StaffVO svo = service.getStaffId();
 		ModelAndView mav = new ModelAndView();
-		
+		mav.addObject("svo", svo);
 		mav.addObject("vo", service.getBoard(no));
 		mav.setViewName("news/noticeView");
 		
+		return mav;
+	}
+	
+	@GetMapping("noticeDel")
+	public ModelAndView noticeDel(int no) {
+		ModelAndView mav = new ModelAndView();
+		int cnt = service.noticeDel(no);
+		if(cnt>0) {
+			mav.setViewName("redirect:notice");
+		}
 		return mav;
 	}
 	

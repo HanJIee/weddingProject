@@ -17,9 +17,15 @@
 		where no=${param1}
 	</select>
 	<select id="event" resultType="EventVO">
-      select no, subject, content, staffid from event;
+      select no, subject, content, staffid, filename from event;
    	</select>
    	<select id="getEvent" resultType="EventVO" parameterType="int">
-      select no, subject, content, staffid from event where no=${param1}
+      select no, subject, content, staffid, filename from event where no=${param1}
    	</select>
+   	<select id="getStaffId" resultType="StaffVO">
+   		select staffid from staff
+   	</select>
+   	<delete id="noticeDel">
+		delete from board where no=${param1}
+	</delete>
 </mapper>  
