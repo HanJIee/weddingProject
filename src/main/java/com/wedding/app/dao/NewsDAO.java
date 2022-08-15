@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wedding.app.vo.BoardVO;
 import com.wedding.app.vo.EventVO;
+import com.wedding.app.vo.StaffVO;
 
 
 @Mapper
@@ -18,5 +19,7 @@ public interface NewsDAO {
 	public BoardVO getBoard(int no);
 	public List<EventVO> event();
 	public EventVO getEvent(int no);
+	public StaffVO getStaffId();
+	public int noticeDel(int no);
 	
 }

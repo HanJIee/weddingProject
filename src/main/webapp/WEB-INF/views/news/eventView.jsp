@@ -23,7 +23,7 @@
 <div>
 	<ul class="menu">
 		<li><a href="event">이벤트 프로모션</a></li>
-		<li><a href=#>공지사항</a></li>
+		<li><a href=notice>공지사항</a></li>
 		<li><a href="gallery">갤러리</a></li>
 	</ul>
 </div>
@@ -36,7 +36,8 @@
 <div id="eventView">
 	<h1>${vo.subject}</h1>
 	<ul>
-		<li><img src="${vo.content}" style=width:500px;height:500px;></li>
+		<li><img src="/img/event/${vo.filename}" style=width:500px;height:500px;></li>
+		<li>${vo.content}</li>
 	</ul>
 
 </div>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.wedding.app.dao.AdminDAO;
 import com.wedding.app.vo.BoardVO;
 import com.wedding.app.vo.DaychangeVO;
+import com.wedding.app.vo.EventVO;
 import com.wedding.app.vo.ReservationVO;
 import com.wedding.app.vo.StaffVO;
 
@@ -60,6 +61,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int adBoardEditOk(BoardVO vo) {
 		return dao.adBoardEditOk(vo);
+	}
+
+	@Override
+	public int dataInsert(EventVO vo) {
+		return dao.dataInsert(vo);
 	}
 
 	

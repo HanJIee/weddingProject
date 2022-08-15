@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.wedding.app.vo.BoardVO;
 import com.wedding.app.vo.DaychangeVO;
+import com.wedding.app.vo.EventVO;
 import com.wedding.app.vo.ReservationVO;
 import com.wedding.app.vo.StaffVO;
 
@@ -18,4 +19,5 @@ public interface AdminService {
 	public int adBoardOk(BoardVO vo);
 	public BoardVO getBoard(int no);
 	public int adBoardEditOk(BoardVO vo);
+	public int dataInsert(EventVO vo);
 }
