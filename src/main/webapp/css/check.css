@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+
+
+#infobox{
+	margin: 0 auto;
+	text-align: left;
+	width: 500px;
+	margin-bottom: 40px;
+	border-bottom: 2px solid #FFA200;
+}
+
+#infobox h2{
+ 	margin: 10px 0;
+}
+ 
+#optioninfo{
+	margin: 0 auto;
+	text-align: center;
+	width:500px;
+	
+}
+#optioninfo input{width: 100%;}
+
+#optioninfo li{
+	text-align: left;
+	margin-bottom: 5px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+input{
+	margin-bottom: 20px;
+	height: 30px;
+}
+
+#modifyFrm{
+	margin: 0 auto;
+	text-align: center;
+}
+#modify{
+	margin-left:10px;
+	width: 510px;
+	height: 40px;
+	color: white;
+	background-color: #FFA200;
+	border: none;
+	border-radius: 2px;
+	margin-top: 30px;
+	margin-bottom: 100px;
+}

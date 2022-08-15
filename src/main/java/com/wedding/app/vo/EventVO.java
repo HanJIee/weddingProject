@@ -1,21 +1,22 @@
 package com.wedding.app.vo;
 
+import java.util.List;
+
 public class EventVO {
 	private int no;
 	private String subject;
 	private String content;
 	private String staffid;
 	private String writedate;
+	private String filename;
 	
-	
+	private List<String> delFile;
 	
 	@Override
 	public String toString() {
 		return "EventVO [no=" + no + ", subject=" + subject + ", content=" + content + ", staffid=" + staffid
-				+ ", writedate=" + writedate + "]";
+				+ ", writedate=" + writedate + ", filename=" + filename + ", delFile=" + delFile + "]";
 	}
-	
-	
 	public int getNo() {
 		return no;
 	}
@@ -46,6 +47,19 @@ public class EventVO {
 	public void setWritedate(String writedate) {
 		this.writedate = writedate;
 	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public List<String> getDelFile() {
+		return delFile;
+	}
+	public void setDelFile(List<String> delFile) {
+		this.delFile = delFile;
+	}
+	
 	
 	
 }

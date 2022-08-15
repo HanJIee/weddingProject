@@ -2,11 +2,40 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <style>
-     .container{display:none;}
-     .bottom{display:none;}
-	#container{background-color:#ddd;}
+	.container{display: none;}
+	.bottom{display:none;}
 	#event-date{width:225px; margin-right:10px;}
 	input[type=text], label{margin-bottom:13px; padding:5px; width:95%;}
+		
+	#box{
+		float: left;
+		line-height: 40px;
+		border-bottom: 1px solid #FFA200;
+		width: 95%;
+		margin-left: 50px;
+		margin-right: 50px;
+		text-align: center;
+		margin-bottom: 50px;
+		
+		}
+	#container h1:first-child {
+		width: 95%;
+		margin-left: 50px;
+		margin-right: 50px;
+		text-align: left;
+		border-bottom: 2px solid #FFA200;
+		}
+	#buttonbox{
+		width: 95%;
+		margin-left: 50px;
+		margin-right: 50px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+	#container input[type="button"]{
+		margin-right: 20px;
+	}
+	
 </style>
 <script>
 	$(function(){
@@ -116,13 +145,13 @@
 <jsp:include page="admin.jsp"></jsp:include>
 <div id="container">	
 	<h1>예약 관리 페이지</h1>
-	<hr/>
 	
+		<div id="buttonbox">
 		<input type="button" value="예약취소" class="multiDel"/>
 		<input type="button" value="예약확정" class="multiDel"/>
 		
 		<input type="button" id="dialogOpen" value="예약변경"/>
-		
+		</div>
 		
 		<div>
 			<form method="post" id="listFrm">
@@ -167,3 +196,4 @@
 			<input type="text" id="event-date"/>
 		</div>
 </div>
+

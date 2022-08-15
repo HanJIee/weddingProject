@@ -4,24 +4,46 @@
 	#topImg>img{width: 1980px; position: relative; bottom: 600px;}		
 	#topImg{height: 300px; overflow: hidden;}		
 
-	.menu{ background-color: red;}
-	.menu>li{float:left; width:50%; height:50px; line-height:50px; text-align:center; background-color: #FFA200; font-weight: bold;}
-	.menu>li:first-child{background-color:white;}
+	.menu>li{
+		float:left;
+		width:50%;
+		height:50px;
+		line-height:50px;
+		text-align:center; 
+		background-color: orange;
+		font-weight:bold;
+	}
+	.menu>li:first-child{
+		background-color:white;
+	}
+	.menu>li:last-child>a{
+		color:white;
+	}
 	
 	#headtitle{text-align: center; line-height: 30px;}
 	#headtitle h1{margin-top: 150px; font-size: 50px; font-family: Bell MT; color: #FFA200; font-weight: bold;}
 	#headtitle p{color: #FFA200; font-size: 20px; font-family: Bell MT; margin-bottom: 100px; }
+	
 		
 	#brandimg{margin-left: 15%; width: 800px; float:left;}
-	#brandinfo h1{padding-top: 80px; color: #FFA200; font-size:3em; font-family: Bell MT;}
-	#brandinfo li{line-height:50px;}
+	
+	#brandinfo h1{
+		padding-top: 120px;
+		color: #FFA200;
+		font-size:3em;
+		font-family: Bell MT;
+		margin-bottom: 80px;
+		
+		}
+		
+	#brandinfo li{line-height:40px; font-family: Bell MT; color: black; }
 	#brandinfo li:last-child{margin-bottom: 300px; color:#5F5F5F;}
 	
-	#brandimg2 {margin: 0 15%;}
-	#brandimg2 img{padding:30px; height:550px;}
-	#brandinfo2 {padding:50px; text-align:center; line-height:45px; color:#5F5F5F;}
+	#brandimg2 {margin: 0 13%;}
+	#brandimg2 img{padding:20px; height:550px;}
+	#brandinfo2 {margin-top:70px; font-weight:bold; border:50px; text-align:center; line-height:45px; color:#5F5F5F;}
 	
-	#brandlogo {text-align:center;}
+	#brandlogo {margin-top: 80px; margin-bottom: 110px; text-align:center;}
 </style>
 
 <div id="topImg">

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet" href="/css/modify.css" type="text/css">
+
 <style>
 	ul, li{
 	margin: 0;
@@ -51,11 +53,6 @@
 		margin-bottom: 100px;
 	}
 	
-	#info{text-align:center;}
-	#info input[type="text"], #info input[type="date"]{height:30px;}
-	.optioninfo input{background-color:#ddd; border:none; width:60%;}
-	
-	.modify{text-align:center;}
 	
 </style>
 <script>
@@ -126,35 +123,42 @@ function disableAllTheseDays(date) {
 </div>
 
 <div id="headtitle">
-	<h1>WEDDING RESERVATION</h1>
+	<h1>Wedding Reservation</h1>
 	<P>예약변경/취소를 하실 수 있습니다.</P>
 </div>
 
 <div id="info">
-	<h2>변경/취소문의</h2>
-	<form method="post" action="/reservation/modifyOk" id="boardFrm">
-	<ul class="optioninfo">
-		<li>"예약 변경 및 취소를 선택해주세요"</li>
-		<li>
-			<select name="change" id="change">
-			<option>예식취소</option>
-			<option>예식일변경</option>
-			</select>
-		</li>
-		<li>홀선택</li>
-		<li><input type="text" name="hallname" id="hallname" value="${vo.hallname}" readonly/></li>
-		<li>예상인원</li>
-		<li><input type="text" name="scale" id="scale" value="${vo.scale}" readonly/></li>	
-		<li>변경할 예식일</li>
-		<li><input type="text" name="changeday" id="changeday" value="${vo.dday}"></li>
-		<li>신부메이크업</li>
-		<li><input type="text" name="makeup" value="${vo.makeup}" readonly/></li>
-		<li>드레스대여</li>
-		<li><input type="text" name="dress" value="${vo.dress }" readonly/></li>
-		<li>변경/취소</li>
-	</ul>
-	<div class="modify">
-		<input type="submit" id="modifyOk" value="변경/취소하기"/>
+	<div id="infobox">
+		<h2>변경/취소문의</h2>
 	</div>
+	<form method="post" action="/reservation/modifyOk" id="changeFrm">
+		<div id="changeinfo">
+			<ul >
+				<li id="text">"예약 변경 및 취소를 선택해주세요"</li>
+				<li>
+					<select name="change" id="change">
+					<option>예식취소</option>
+					<option>예식일변경</option>
+					</select>
+				</li>
+				<li>홀</li>
+				<li><input type="text" name="hallname" id="hallname" value="${vo.hallname}" readonly/></li>
+				
+				<li>예상인원</li>
+				<li><input type="text" name="scale" id="scale" value="${vo.scale}" readonly/></li>	
+				
+				<li>변경할 예식일</li>
+				<li><input type="text" name="changeday" id="changeday" value="${vo.dday}"></li>
+				
+				<li>신부메이크업</li>
+				<li><input type="text" name="makeup" value="${vo.makeup}" readonly/></li>
+				
+				<li>드레스대여</li>
+				<li><input type="text" name="dress" value="${vo.dress }" readonly/></li>
+			</ul>
+		</div>
+		<div id="modify">
+			<input type="submit" id="modifyOk" value="변경/취소하기"/>
+		</div>
 	</form>
 </div>

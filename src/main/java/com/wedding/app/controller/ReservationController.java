@@ -50,6 +50,30 @@ public class ReservationController {
 		System.out.println(list.size());
 		return list;
 	}
+	//예약상담 제출
+	@PostMapping("consultOk")
+	public ResponseEntity<String> consultOk(ReservationVO vo, HttpServletRequest request){
+		vo.setUserid((String)request.getSession().getAttribute("logId"));
+		ResponseEntity<String> entity = null;
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("text", "html", Charset.forName("UTF-8")));
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+		String msg ="<script>";
+		try {
+			service.consultOk(vo);
+			msg += "alert('예약신청이 접수되었습니다.');";
+			msg += "location.href='/reservation/check';";
+			msg += "</script>";
+			entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
+		}catch(Exception e) {
+			msg += "alert('예약신청에 실패하였습니다.');";
+			msg += "history.go(-1);";
+			msg += "</script>";
+			entity = new ResponseEntity<String>(msg, headers, HttpStatus.BAD_REQUEST);
+		}
+		 
+		return entity;
+	}
 	
 	//예약확인페이지 이동
 		@GetMapping("check")
@@ -95,7 +119,7 @@ public class ReservationController {
 	      if(cnt>0) {
 	    	  msg += "alert('예약변경/취소가 접수되었습니다.');";
 	      }else {
-	    	  msg += "alert('실패!');";
+	    	  msg += "alert('예약변경/취소가 실패하였습니다!');";
 	      }
 	      msg += "location.href='/reservation/check';";
 	      msg += "</script>";
