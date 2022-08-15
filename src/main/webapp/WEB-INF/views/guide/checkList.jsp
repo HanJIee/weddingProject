@@ -44,16 +44,17 @@
 	.menu>li:first-child>a{
 		color:white;
 	}
-	#middle>img{width:70%; margin:25px auto;}
+	#middle>img{width:60%; margin:25px auto;}
 	
 	input[type="button"]{
 		background-Color:rgb(255,162,0); 
 		border:none;
-		font-size:20px;   
+		font-size:16px;   
 		font-weight:bold; 
 		color:#fff;   
-		width:275px; height:50px; 
+		width:230px; height:45px; 
 		margin:40px 20px 80px;
+		border-radius: 3px;
 	}
 	
 	@media print {

@@ -2,6 +2,7 @@ package com.wedding.app.controller;
 
 import java.io.File;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -23,8 +24,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.wedding.app.service.AdminService;
 import com.wedding.app.vo.BoardVO;
-import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.EventVO;
+import com.wedding.app.vo.GalleryVO;
 import com.wedding.app.vo.ReservationVO;
 import com.wedding.app.vo.StaffVO;
 
@@ -158,6 +159,112 @@ public class AdminController {
 			
 		}
 	}
+	//이벤트 페이지 수정폼
+	@GetMapping("adEventEdit/{no}")
+	public ModelAndView adEventEdit(@PathVariable("no") int no) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("vo", service.dataSelect(no));
+		mav.setViewName("staff/adEventEdit");
+		return mav;
+	}
+	//이벤트 페이지 수정 DB
+	@PostMapping("adEventEditOk")
+	public ResponseEntity<String> adEventEditOk(EventVO vo, HttpServletRequest request){
+		
+		//파일명보관
+		EventVO dbFile = service.getFilenames(vo.getNo());
+		System.out.println(service.getFilenames(vo.getNo()));
+		//최종 사용할 파일명정리하는 컬렉션
+		List<String> editFileList = new ArrayList<String>();
+		//DB에서 선택한 파일을 컬렉션에 담기
+		if(dbFile.getFilename()!=null) {
+			editFileList.add(dbFile.getFilename());
+		}
+		//삭제파일명과 같은 파일 최종컬렉션에서 제거
+		if(vo.getDelFile()!=null) {
+			for(String del : vo.getDelFile()) {
+				editFileList.remove(del);
+			}
+		}
+		
+		//업로드할 위치
+		String path = request.getServletContext().getRealPath("/img/event");
+		//새로 업로드한 파일명 보관할 컬렉션
+		List<String> newUpload = new ArrayList<String>();
+		//스크립트 넣을 변수 선언
+		String msg = "";
+		try {
+			MultipartHttpServletRequest mr = (MultipartHttpServletRequest)request;
+			
+			List<MultipartFile> newMf = mr.getFiles("fname");
+			if(newMf!=null) {//업로드한 파일이 있으면
+				for(int i=0;i<newMf.size();i++) {
+					MultipartFile mf = newMf.get(i);
+					String org_filename = mf.getOriginalFilename();
+					
+					if(org_filename!=null && !org_filename.equals("")) {
+						File file = new File(path, org_filename);
+						if(file.exists()) {
+							for(int j=1;;j++) {
+								int p = org_filename.lastIndexOf(".");
+								String filenameNoExt = org_filename.substring(0,p);
+								String ext = org_filename.substring(p+1);
+								String renameFilename = filenameNoExt+"("+j+")."+ext;
+								file = new File(path, renameFilename);
+								if(!file.exists()) {
+									org_filename = renameFilename;
+									break;
+								}
+							}
+						}
+						mf.transferTo(file);
+						newUpload.add(file.getName());
+						editFileList.add(file.getName());
+					}
+				}
+			}
+			//DB 업데이트 
+			for(int i=0;i<editFileList.size();i++) {
+				if(i==0) vo.setFilename(editFileList.get(0));
+			}
+			//세션에 로그인한 아이디
+			vo.setStaffid((String)request.getSession().getAttribute("adId"));
+			int result = service.dataUpdate(vo);
+			if(result>0) {
+				if(vo.getDelFile()!=null) {
+					for(String f : vo.getDelFile()) {
+						fileDelete(path,f);
+					}
+				}
+				//글내용보기로 페이지 이동
+				msg += "<script>";
+				msg += "alert('이벤트 글수정 성공하였습니다.');";
+				msg += "location.href='/news/eventView?no="+vo.getNo()+"';";
+				msg += "</script>";
+			}else {
+				throw new Exception();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+			//update 실패
+			//새로 업로드된 파일을 지운다.
+			for(String f : newUpload) {
+				fileDelete(path,f);
+			}
+			//수정페이지로 이동
+			msg += "<script>";
+			msg += "alert('이벤트 글수정에 실패하였습니다.');";
+			msg += "history.back();";
+			msg += "</script>";
+		}
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("text","html",Charset.forName("UTF-8")));
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+		
+		ResponseEntity<String> entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
+		return entity;
+	}
 	//==============================================================================
 	//공지사항 글쓰기 페이지 이동
 	@GetMapping("adBoard")
@@ -221,7 +328,197 @@ public class AdminController {
 		return entity;
 	}
 	//===============================================================================
-	
+	//갤러리 글쓰기 이동
+	@GetMapping("adGallery")
+	public ModelAndView adGallery() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("staff/adGallery");
+		return mav;
+	}
+	//갤러리 글쓰기 폼 + 파일업로드
+	@PostMapping("adGalleryOk")
+	public ResponseEntity<String> adGalleryOk(GalleryVO vo, HttpServletRequest request){
+		//업로드할 위치의 절대경로
+		String path = request.getSession().getServletContext().getRealPath("/img/gallery");
+		System.out.println("path="+path);
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("text", "html", Charset.forName("UTF-8")));
+		headers.add("Content-Type", "text/html; charset=utf-8");
+		
+		//파일업로드
+		String message = "";
+		try {
+			//1. 클라이언트 컴퓨터에 있는 파일이 서버로 복사하기 위해서는  
+			//MultipartHttpServletRequest 객체를 request 객체에서 타입캐스팅으로 구한다.
+			MultipartHttpServletRequest mr = (MultipartHttpServletRequest)request;
+			
+			// mr에는 업로드한 파일수만큼 MultipartFile객체가 존재한다.
+			// MultipartFile객체를 List 컬렉션에 담아 리턴해준다.
+			List<MultipartFile> files = mr.getFiles("fname");
+			
+			//업로드한 파일이 있을 때
+			if(files != null) {
+				//첨부한 파일의 수만큼 반복적으로 업로드를 처리한다.
+				int cnt=0;
+				for(int i=0;i<files.size();i++) {
+					MultipartFile mf = files.get(i);
+					//업로드한 실제 파일명
+					String orgName = mf.getOriginalFilename();
+					System.out.println("원래파일명 : "+orgName);
+					//이미 파일명이 존재하면 rename
+					if(orgName != null && !orgName.equals("")) {
+						File f = new File(path, orgName);
+						if(f.exists()) {
+							for(int renameNum=1;;renameNum++) {
+								int dot = orgName.lastIndexOf(".");
+								String fileName = orgName.substring(0,dot);
+								String extName = orgName.substring(dot+1);
+								
+								f = new File(path, fileName+"("+renameNum+")."+extName);
+								if(!f.exists()){
+									orgName = f.getName();
+									break;
+								}
+							}
+						}
+						//파일업로드 실행
+						mf.transferTo(f);
+						cnt++;
+						if(cnt==1) vo.setFilename(f.getName());
+						System.out.println("이름=>"+f.getName()+"cnt=>"+cnt);
+					}
+				}
+			}
+			//DB등록
+			vo.setStaffid((String)request.getSession().getAttribute("adId"));
+			
+			int cnt = service.gdataInsert(vo);
+			
+			if(cnt>0) {
+				message += "<script>";
+				message += "alert('갤러리 등록이 완료되었습니다.');";
+				message += "location.href='/news/gallery';";
+				message += "</script>";
+			}else {//등록실패
+				throw new Exception();
+			}
+			
+		}catch(Exception e) {
+			fileDelete(path, vo.getFilename());
+			
+			message += "<script>";
+			message += "alert('갤러리 등록에 실패하였습니다.');";
+			message += "history.go(-1);";
+			message += "</script>";
+		}
+		ResponseEntity<String> entity = new ResponseEntity<String>(message, headers, HttpStatus.OK);
+		return entity;
+	}
+	//갤러리 페이지 수정폼
+		@GetMapping("adGalleryEdit/{no}")
+		public ModelAndView adGalleryEdit(@PathVariable("no") int no) {
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("vo", service.gdataSelect(no));
+			mav.setViewName("staff/adGalleryEdit");
+			return mav;
+		}
+		//갤러리 페이지 수정 DB
+		@PostMapping("adGalleryEditOk")
+		public ResponseEntity<String> adGalleryEditOk(GalleryVO vo, HttpServletRequest request){
+			
+			//파일명보관
+			GalleryVO dbFile = service.ggetFilenames(vo.getNo());
+			//최종 사용할 파일명정리하는 컬렉션
+			List<String> editFileList = new ArrayList<String>();
+			//DB에서 선택한 파일을 컬렉션에 담기
+			if(dbFile.getFilename()!=null) {
+				editFileList.add(dbFile.getFilename());
+			}
+			//삭제파일명과 같은 파일 최종컬렉션에서 제거
+			if(vo.getDelFile()!=null) {
+				for(String del : vo.getDelFile()) {
+					editFileList.remove(del);
+				}
+			}
+			
+			//업로드할 위치
+			String path = request.getServletContext().getRealPath("/img/gallery");
+			//새로 업로드한 파일명 보관할 컬렉션
+			List<String> newUpload = new ArrayList<String>();
+			//스크립트 넣을 변수 선언
+			String msg = "";
+			try {
+				MultipartHttpServletRequest mr = (MultipartHttpServletRequest)request;
+				
+				List<MultipartFile> newMf = mr.getFiles("fname");
+				if(newMf!=null) {//업로드한 파일이 있으면
+					for(int i=0;i<newMf.size();i++) {
+						MultipartFile mf = newMf.get(i);
+						String org_filename = mf.getOriginalFilename();
+						
+						if(org_filename!=null && !org_filename.equals("")) {
+							File file = new File(path, org_filename);
+							if(file.exists()) {
+								for(int j=1;;j++) {
+									int p = org_filename.lastIndexOf(".");
+									String filenameNoExt = org_filename.substring(0,p);
+									String ext = org_filename.substring(p+1);
+									String renameFilename = filenameNoExt+"("+j+")."+ext;
+									file = new File(path, renameFilename);
+									if(!file.exists()) {
+										org_filename = renameFilename;
+										break;
+									}
+								}
+							}
+							mf.transferTo(file);
+							newUpload.add(file.getName());
+							editFileList.add(file.getName());
+						}
+					}
+				}
+				//DB 업데이트 
+				for(int i=0;i<editFileList.size();i++) {
+					if(i==0) vo.setFilename(editFileList.get(0));
+				}
+				//세션에 로그인한 아이디
+				vo.setStaffid((String)request.getSession().getAttribute("adId"));
+				int result = service.gdataUpdate(vo);
+				if(result>0) {
+					if(vo.getDelFile()!=null) {
+						for(String f : vo.getDelFile()) {
+							fileDelete(path,f);
+						}
+					}
+					//글내용보기로 페이지 이동
+					msg += "<script>";
+					msg += "alert('갤러리 글수정 성공하였습니다.');";
+					msg += "location.href='/news/galleryView?no="+vo.getNo()+"';";
+					msg += "</script>";
+				}else {
+					throw new Exception();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+				
+				//update 실패
+				//새로 업로드된 파일을 지운다.
+				for(String f : newUpload) {
+					fileDelete(path,f);
+				}
+				//수정페이지로 이동
+				msg += "<script>";
+				msg += "alert('갤러리 글수정에 실패하였습니다.');";
+				msg += "history.back();";
+				msg += "</script>";
+			}
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(new MediaType("text","html",Charset.forName("UTF-8")));
+			headers.add("Content-Type", "text/html; charset=UTF-8");
+			
+			ResponseEntity<String> entity = new ResponseEntity<String>(msg, headers, HttpStatus.OK);
+			return entity;
+		}
 	//===============================================================================
 	//예약관리 페이지 이동
 	//예약 내역 가져오기

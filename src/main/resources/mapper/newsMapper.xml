@@ -22,10 +22,22 @@
    	<select id="getEvent" resultType="EventVO" parameterType="int">
       select no, subject, content, staffid, filename from event where no=${param1}
    	</select>
+   	<select id="gallery" resultType="GalleryVO">
+      select no, subject, content, staffid, filename from gallery
+   	</select>
+   	<select id="getGallery" resultType="GalleryVO" parameterType="int">
+      select no, subject, content, staffid, filename from gallery where no=${param1}
+   	</select>
    	<select id="getStaffId" resultType="StaffVO">
    		select staffid from staff
    	</select>
    	<delete id="noticeDel">
 		delete from board where no=${param1}
+	</delete>
+	<delete id="eventDel">
+		delete from event where no=${param1}
+	</delete>
+	<delete id="galleryDel">
+		delete from gallery where no=${param1}
 	</delete>
 </mapper>  

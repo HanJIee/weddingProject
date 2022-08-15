@@ -14,21 +14,8 @@
 	}
 	
 	#topImg{height: 300px;
-	overflow: hidden;}	
-	}
-	.menu{
-		background-color: red;
-	}
-	
-	.menu>li{
-		float:left;
-		width:50%;
-		height:50px;
-		line-height:50px;
-		text-align:center; 
-		background-color: #FFA200;
-		font-weight: bold;
-	}
+	overflow: hidden;
+	}	
 	
 	#headtitle{
 		text-align: center;
@@ -49,8 +36,21 @@
 	
 	}
 	
-	
-	
+	.menu>li{
+		float:left;
+		width:50%;
+		height:50px;
+		line-height:50px;
+		text-align:center; 
+		background-color: orange;
+		font-weight:bold;
+	}
+	.menu>li:first-child{
+		background-color:white;
+	}
+	.menu>li:last-child>a{
+		color:white;
+	}
 	
 	
 </style>
@@ -61,13 +61,13 @@
 	
 	<div>
 		<ul class="menu">
-			<li><a href="">홀</a></li>
-			<li><a href="">부대시설/서비스</a></li>
+			<li><a href="hallList">홀</a></li>
+			<li><a href="serviceList">부대시설/서비스</a></li>
 		</ul>
 	</div>
 	
 	<div id="headtitle">
-		<h1>WEDDING HALL</h1>
+		<h1>Wedding Hall</h1>
 		<P>인생의 모든 순간을 빛낼 일생 단 한 번의 축제</P>
 	</div>
 
@@ -80,8 +80,8 @@
 		</ul>
 		
 		<ul id="gardeninfo">
-		<li><input type="button" value="예약상담" id="btn"></li>
-		<li><h1>가든홀</h1></li>
+		<li><input type="button" value="예약상담" id="btn" onclick="location.href='/reservation/consult'"></li>
+		<li><h1>가든홀1</h1></li>
 		<li><h2>GARDEN HALL</h2></li>
 		<li>야외 가든하우스 느낌의 인테리어!<br/>
 			마치 숲속에 와있는 듯한 웨딩파티 플레이스!<br/>
@@ -119,8 +119,8 @@
 		</ul>
 		
 		<ul id="gardeninfo2">
-			<li><input type="button" value="예약상담" id="btn2"></li>
-			<li><h1>가든홀</h1></li>
+			<li><input type="button" value="예약상담" id="btn2" onclick="location.href='/reservation/consult'"></li>
+			<li><h1>가든홀2</h1></li>
 			<li><h2>GARDEN HALL</h2></li>
 			<li>통유리 벽 사이로 쏟아지는 빛의 향연이 펼쳐지는 인테리어!<br/>
 				마치 숲속에 와있는 듯한 웨딩파티 플레이스!<br/>

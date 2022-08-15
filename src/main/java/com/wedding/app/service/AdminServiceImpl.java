@@ -10,6 +10,7 @@ import com.wedding.app.dao.AdminDAO;
 import com.wedding.app.vo.BoardVO;
 import com.wedding.app.vo.DaychangeVO;
 import com.wedding.app.vo.EventVO;
+import com.wedding.app.vo.GalleryVO;
 import com.wedding.app.vo.ReservationVO;
 import com.wedding.app.vo.StaffVO;
 
@@ -68,7 +69,41 @@ public class AdminServiceImpl implements AdminService {
 		return dao.dataInsert(vo);
 	}
 
-	
+	@Override
+	public EventVO dataSelect(int no) {
+		return dao.dataSelect(no);
+	}
+
+	@Override
+	public EventVO getFilenames(int no) {
+		return dao.getFilenames(no);
+	}
+
+	@Override
+	public int dataUpdate(EventVO vo) {
+		return dao.dataUpdate(vo);
+	}
+
+	@Override
+	public int gdataInsert(GalleryVO vo) {
+		return dao.gdataInsert(vo);
+	}
+
+	@Override
+	public GalleryVO gdataSelect(int no) {
+		return dao.gdataSelect(no);
+	}
+
+	@Override
+	public GalleryVO ggetFilenames(int no) {
+		return dao.ggetFilenames(no);
+	}
+
+	@Override
+	public int gdataUpdate(GalleryVO vo) {
+		return dao.gdataUpdate(vo);
+	}
+
 
 	
 }

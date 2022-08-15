@@ -32,14 +32,17 @@
 <body>
 <div class="container">
 	<div id="memberinfo">
-		<c:if test="${logStatus!='Y' }">
-         <a href="/user/login">로그인</a> |
-         <a href="/user/signUp">회원가입</a>
+      <c:if test="${logStatus!='Y'&&adStatus!='Y'}">
+         <a href="/user/login">로그인</a> &nbsp;|&nbsp;
+           <a href="/user/signUp">회원가입</a>
       </c:if>
-      <c:if test="${logStatus=='Y' }">
-         ${logId }님 | <a href="/user/logout">로그아웃</a>
-      </c:if>   
-	</div>
+      <c:if test="${logStatus=='Y'&&adStatus!='Y'}">
+        ${logId }님 &nbsp;|&nbsp; <a href="/user/logout">로그아웃</a>
+        </c:if>
+      <c:if test="${logStatus!='Y'&&adStatus=='Y'}">
+           ${adId }님  &nbsp;|&nbsp; <a href="/staff/admin">관리자페이지</a> &nbsp;|&nbsp; <a href="/user/logout">로그아웃</a>
+      </c:if>            
+   </div>
 	
 	<!-- 로고 -->
 	<div id="logo"><a href="/"><img src="/img/logo.png" width="250"></a></div>

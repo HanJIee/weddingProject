@@ -2,6 +2,25 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/css/signup.css" type="text/css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style>
+
+body, ul ,li{
+	margin: 0;
+	padding: 0;
+}
+#topImg>img{
+	width: 1980px;
+	position: relative;
+	bottom: 600px;
+}
+	
+	#topImg{
+	height: 300px;
+	overflow: hidden;
+}
+
+</style>
+
 <script>
 $(document).ready(function(){            
     var now = new Date();
@@ -63,38 +82,48 @@ $(document).ready(function(){
 
 <link rel="stylesheet" href="/css/signup.css" type="text/css">
 
+<div id="topImg">
+	<img src="/img/001.jpg">
+</div>
+
 <div id="signFrm">
 	<h1>회원가입</h1>
-	<h2>작성자정보</h2>
-	<span>필수입력</span>
+	<div id="infobox">
+		<h2>작성자정보<span>*필수입력</span></h2>
+	</div>
 	<form method="post" action="/user/signUpOk" id="sign">
-		<ul>
-			<li>아이디*</li>
-				<li><input type="text" name="userid" id="userid" /></li>
-			<li>비밀번호*</li>
-				<li><input type="password" name="userpwd" id="userpwd" /></li>
-			<li>비밀번호 재확인*</li>
-				<li><input type="password" name="userpwd2" id="userpwd2" /></li>
-			<li>생년월일*</li>
-			<li>
-				<select name="yy" id="year"></select>	
-				<select name="mm"id="month"></select>
-				<select name="dd" id="day"></select>
-			</li>
-			<li>성별*</li>
-			<li>
-				<select>
-					<option id="M">남</option>
-					<option id="W">여</option>
-				</select>
-			</li>
-			<li>연락처*</li>
-			<li>
-				<input type="text" name="tel1" id="tel1" size="4" /> - 
-				<input type="text" name="tel2" id="tel2" size="4" /> - 
-				<input type="text" name="tel3" id="tel3" size="4" />
-			</li>
-			<li><input type="submit" value="가입하기"/></li>
-		</ul>
+		<div id="box">
+			<ul>
+				<li>아이디<span>*</span></li>
+				
+					<li><input type="text" name="userid" id="userid" /></li>
+				<li>비밀번호<span>*</span></li>
+					<li><input type="password" name="userpwd" id="userpwd" /></li>
+				<li>비밀번호 재확인<span>*</span></li>
+					<li><input type="password" name="userpwd2" id="userpwd2" /></li>
+				<li id="bday">생년월일<span>*</span></li>
+				<li id="daybox">
+					<select name="yy" id="year"></select>	
+					<select name="mm"id="month"></select>
+					<select name="dd" id="day"></select>
+				</li>
+				<li id="gen">성별</li>
+				<li >
+					<select id="genbox">
+						<option id="M">남</option>
+						<option id="W">여</option>
+					</select>
+				</li>
+				<li id="teltitle">연락처<span>*</span></li>
+				<div id="telbox">
+					<input type="text" name="tel1" id="tel1" size="4" />&nbsp-&nbsp
+					<input type="text" name="tel2" id="tel2" size="4" />&nbsp-&nbsp 
+					<input type="text" name="tel3" id="tel3" size="4" />
+				</div>
+				
+				<li><input type="submit" value="가입하기"/></li>
+			</ul>
+			
+		</div>
 	</form>
 </div>

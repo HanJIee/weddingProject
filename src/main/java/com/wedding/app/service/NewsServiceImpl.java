@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.wedding.app.dao.NewsDAO;
 import com.wedding.app.vo.BoardVO;
 import com.wedding.app.vo.EventVO;
+import com.wedding.app.vo.GalleryVO;
 import com.wedding.app.vo.StaffVO;
 
 @Service
@@ -51,6 +52,26 @@ public class NewsServiceImpl implements NewsService{
 	@Override
 	public int noticeDel(int no) {
 		return dao.noticeDel(no);
+	}
+
+	@Override
+	public int eventDel(int no) {
+		return dao.eventDel(no);
+	}
+
+	@Override
+	public List<GalleryVO> gallery() {
+		return dao.gallery();
+	}
+
+	@Override
+	public GalleryVO getGallery(int no) {
+		return dao.getGallery(no);
+	}
+
+	@Override
+	public int galleryDel(int no) {
+		return dao.galleryDel(no);
 	}
 
 	
