@@ -47,7 +47,12 @@ span{color: red;}
 input{
 	margin-bottom: 20px;
 }
-
+#userid{
+	margin-bottom:0;
+}
+#box li:nth-child(5){
+	margin-top:20px;
+}
 input[type="text"], input[type="password"]{
 	height: 25px;
 }
