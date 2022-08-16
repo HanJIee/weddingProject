@@ -43,7 +43,13 @@
 	}
 
 </style>
-
+<script>
+	function galleryDel(){
+	   if(confirm("글을 삭제하시겠습니까?")){
+	      location.href="/news/galleryDel?no=${vo.no}";
+	   }
+	}
+</script>
 <div id="topImg">
 	<img src="/img/001.jpg">
 </div>
@@ -65,7 +71,7 @@
 <div id="galleryView">
 	<h1 id="subbox2">${vo.subject}</h1>
 	<ul>
-		<li><img src="/img/gallery/${vo.filename}" style=width:500px;height:500px;></li>
+		<li><img src="/img/gallery/${vo.filename}"></li>
 		<li id="conbox2">${vo.content}</li>
 	</ul>
 

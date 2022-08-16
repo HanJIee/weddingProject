@@ -30,6 +30,7 @@
 	});
 </script>
 <div>
+	<h1>이벤트 수정폼</h1>
 	<form method="post" action="/staff/adEventEditOk" id="dataFrm" enctype="multipart/form-data">	
 		<input type="hidden" name="no" value="${vo.no}"/>
 		<ul>
