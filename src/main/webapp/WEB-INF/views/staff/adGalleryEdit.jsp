@@ -30,6 +30,7 @@
 	});
 </script>
 <div>
+	<h1>갤러리 수정폼</h1>
 	<form method="post" action="/staff/adGalleryEditOk" id="dataFrm" enctype="multipart/form-data">	
 		<input type="hidden" name="no" value="${vo.no}"/>
 		<ul>

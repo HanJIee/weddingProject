@@ -24,4 +24,10 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return dao.signUpOk(vo);
 	}
+
+	@Override
+	public int idCheck(String userid)throws Exception{
+		// TODO Auto-generated method stub
+		return dao.idCheck(userid);
+	}
 }

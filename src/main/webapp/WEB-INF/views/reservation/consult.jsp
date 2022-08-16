@@ -54,10 +54,10 @@
 		background-color: orange;
 		font-weight:bold;
 	}
-	.menu>li:last-child{
+	.menu>li:first-child{
 		background-color:white;
 	}
-	.menu>li:first-child>a{
+	.menu>li:last-child>a{
 		color:white;
 	}
 	

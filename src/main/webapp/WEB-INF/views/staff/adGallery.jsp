@@ -19,6 +19,7 @@
 	});
 </script>
 <div>
+	<h1>갤러리 글등록</h1>
 	<form method="post" action="/staff/adGalleryOk" id="dataFrm" enctype="multipart/form-data">	
 		<ul>
 			<li>제목</li>

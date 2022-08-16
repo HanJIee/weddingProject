@@ -5,4 +5,5 @@ import com.wedding.app.vo.UserVO;
 public interface UserService {
 	public UserVO loginOk(UserVO vo);
 	public int signUpOk(UserVO vo);
+	public int idCheck(String userid)throws Exception;
 }

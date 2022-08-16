@@ -47,10 +47,10 @@
 		background-color: orange;
 		font-weight:bold;
 	}
-	.menu>li:first-child{
+	.menu>li:last-child{
 		background-color:white;
 	}
-	.menu>li:last-child>a{
+	.menu>li:first-child>a{
 		color:white;
 	
 	

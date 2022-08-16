@@ -49,7 +49,7 @@ public class AdminController {
 		if(svo!=null) {
 			session.setAttribute("adId", svo.getStaffid());
 			session.setAttribute("adStatus", "Y");
-			mav.setViewName("redirect:admin");
+			mav.setViewName("redirect:adReservation");
 		}else {
 			mav.setViewName("redirect:adlogin");
 		}
