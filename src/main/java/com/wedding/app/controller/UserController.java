@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -94,5 +95,17 @@ public class UserController {
 			e.printStackTrace();
 		}
 		return entity;
+	}
+	//id중복검사
+	@PostMapping("idChk")
+	@ResponseBody
+	public String idChk(String userid) throws Exception{
+		int result = service.idCheck(userid);
+		
+		if(result !=0) {
+			return "fail";
+		}else {
+			return "success";
+		}
 	}
 }

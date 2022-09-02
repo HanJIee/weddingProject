@@ -51,13 +51,13 @@
 		height:50px;
 		line-height:50px;
 		text-align:center; 
-		background-color: orange;
+		background-color: white;
 		font-weight:bold;
 	}
 	.menu>li:last-child{
-		background-color:white;
+		background-color:orange;
 	}
-	.menu>li:first-child>a{
+	.menu>li:last-child>a{
 		color:white;
 	}
 	

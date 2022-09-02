@@ -43,7 +43,13 @@
 	}
 
 </style>
-
+<script>
+   function galleryDel(){
+      if(confirm("글을 삭제하시겠습니까?")){
+         location.href="/news/galleryDel?no=${vo.no}";
+      }
+   }
+</script>
 <div id="topImg">
 	<img src="/img/001.jpg">
 </div>

@@ -44,13 +44,13 @@
 		height:50px;
 		line-height:50px;
 		text-align:center; 
-		background-color: orange;
+		background-color: white;
 		font-weight:bold;
 	}
 	.menu>li:first-child{
-		background-color:white;
+		background-color:orange;
 	}
-	.menu>li:last-child>a{
+	.menu>li:first-child>a{
 		color:white;
 	
 	

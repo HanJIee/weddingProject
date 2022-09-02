@@ -67,11 +67,6 @@
 	<P>행복한 순간을 추억해보세요</P>
 </div>
 
-<div id="headtitle">
-	<h1>Gallery</h1>
-	<P>행복한 순간을 추억해보세요</P>
-</div>
-
 <div id="gallery">
 	<c:forEach var="vo" items="${list}">
 		<a href="galleryView?no=${vo.no}">

@@ -42,7 +42,13 @@
 		line-height: 20px;
 	}
 </style>
-
+<script>
+   function eventDel(){
+      if(confirm("글을 삭제하시겠습니까?")){
+         location.href="/news/eventDel?no=${vo.no}";
+      }
+   }
+</script>
 <div id="topImg">
 	<img src="/img/001.jpg">
 </div>

@@ -19,9 +19,20 @@ body, ul ,li{
 	overflow: hidden;
 }
 
+	/* 사용가능 */
+	.idchk{
+		color : green;
+		display : none;
+	}
+	/* 사용불가 */
+	.idchk2{
+		color : red;
+		display:none;
+	}
 </style>
 
 <script>
+
 $(document).ready(function(){            
     var now = new Date();
     var year = now.getFullYear();
@@ -46,46 +57,69 @@ $(document).ready(function(){
     $("#month  > option[value="+mon+"]").attr("selected", "true");    
     $("#day  > option[value="+day+"]").attr("selected", "true");       
   
-})
 
-	$(function(){
-		//유효성 검사
-		$("#sign").submit(function(){
-			//아이디
-			if($("#userid").val()==""){
-				alert("아이디를 입력하세요..");
-				return false;
-			}
-			if($("#userpwd").val()==""){
-				alert("비밀번호를 입력하세요.");
-				return false;
-			}
-			if($("#userpwd2").val()==""){
-				alert("비밀번호 재확인란을 입력해주세요.");
-				return false;
-			}
-			if($("#userpwd").val()!=$("#userpwd2").val()){
-				alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-				return false;
-			}
-			//연락처
-			if($("#tel1").val()=="" || $("#tel2").val()=="" || $("#tel3").val()==""){
-				alert("연락처를 입력하세요...");
-				return false;
-			}
-			return true;
-		});
+
+	//유효성 검사
+	$("#sign").submit(function(){
+		//아이디
+		if($("#userid").val()==""){
+			alert("아이디를 입력하세요..");
+			return false;
+		}
+		if($("#userpwd").val()==""){
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+		if($("#userpwd2").val()==""){
+			alert("비밀번호 재확인란을 입력해주세요.");
+			return false;
+		}
+		if($("#userpwd").val()!=$("#userpwd2").val()){
+			alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+			return false;
+		}
+		//연락처
+		if($("#tel1").val()=="" || $("#tel2").val()=="" || $("#tel3").val()==""){
+			alert("연락처를 입력하세요...");
+			return false;
+		}
+		return true;
 	});
+	
+	$('#userid').on("propertychange change keyup paste input", function() {
+		console.log("fdsfd");
+
+		var userid =  $('#userid').val();
+		var data = {userid : userid}
+		
+		$.ajax({
+			type : "post",
+			url : "/user/idChk",
+			data : data,
+			success : function(result){
+				if(result !='fail'){
+					$('.idchk').css("display","inline-block");
+					$('.idchk2').css("display",'none');
+				}else{
+					$('.idchk2').css("display","inline-block");
+					$('.idchk').css("display","none");
+				}
+			}
+		});
+	
+	});
+		
+});
+	
 </script>
 
 
 
-<link rel="stylesheet" href="/css/signup.css" type="text/css">
+
 
 <div id="topImg">
 	<img src="/img/001.jpg">
 </div>
-
 <div id="signFrm">
 	<h1>회원가입</h1>
 	<div id="infobox">
@@ -95,8 +129,9 @@ $(document).ready(function(){
 		<div id="box">
 			<ul>
 				<li>아이디<span>*</span></li>
-				
 					<li><input type="text" name="userid" id="userid" /></li>
+					<li><span class="idchk">사용 가능한 아이디 입니다.</span></li>
+					<li><span class="idchk2">해당 아이디가 이미 존재합니다</span></li>
 				<li>비밀번호<span>*</span></li>
 					<li><input type="password" name="userpwd" id="userpwd" /></li>
 				<li>비밀번호 재확인<span>*</span></li>
